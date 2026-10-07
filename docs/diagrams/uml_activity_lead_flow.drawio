@@ -1,0 +1,106 @@
+<mxfile host="app.diagrams.net" modified="2026-10-06T06:53:02+00:00" version="24.0.0">
+  <diagram id="act_page" name="Activity Diagram Alur Lead">
+    <mxGraphModel dx="1600" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2200" pageHeight="1600" background="#0f172a" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+<mxCell id="title_act" value="ENZO CONSTRUCTION — ACTIVITY DIAGRAM (LEAD CONVERSION FLOW)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=22;fontStyle=1;fontColor=#f8fafc;" vertex="1" parent="1">
+  <mxGeometry x="100" y="30" width="1400" height="40" as="geometry" />
+</mxCell>
+<mxCell id="lane_client" value="CALON KLIEN / INVESTOR" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=36;horizontalStack=0;resizeParent=0;collapsible=0;whiteSpace=wrap;html=1;fillColor=#1e293b;strokeColor=420;fontColor=#ffffff;fontSize=13;rounded=1;arcSize=4;" vertex="1" parent="1">
+  <mxGeometry x="60" y="90" width="420  <mxGeometry x="60" y="90" width="400" height="950" as="geometry" />
+</mxCell>
+<mxCell id="lane_system" value="SISTEM WEB &amp; ENGINE ENZO" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=36;horizontalStack=0;resizeParent=0;collapsible=0;whiteSpace=wrap;html=1;fillColor=#1e293b;strokeColor=460;fontColor=#ffffff;fontSize=13;rounded=1;arcSize=4;" vertex="1" parent="1">
+  <mxGeometry x="480" y="90" width="460  <mxGeometry x="480" y="90" width="440" height="950" as="geometry" />
+</mxCell>
+<mxCell id="lane_team" value="TIM ESTIMATOR &amp; MANAJEMEN" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=36;horizontalStack=0;resizeParent=0;collapsible=0;whiteSpace=wrap;html=1;fillColor=#1e293b;strokeColor=460;fontColor=#ffffff;fontSize=13;rounded=1;arcSize=4;" vertex="1" parent="1">
+  <mxGeometry x="940" y="90" width="460  <mxGeometry x="940" y="90" width="440" height="950" as="geometry" />
+</mxCell>
+<mxCell id="start" value="" style="ellipse;fillColor=#10b981;strokeColor=#34d399;" vertex="1" parent="1">
+  <mxGeometry x="235" y="150" width="36" height="36" as="geometry" />
+</mxCell>
+<mxCell id="act1" value="Buka Website &amp;amp; Telusuri Portofolio" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0f172a;strokeColor=#38bdf8;fontColor=#f8fafc;" vertex="1" parent="1">
+  <mxGeometry x="135" y="220" width="240" height="50" as="geometry" />
+</mxCell>
+<mxCell id="dec1" value="Ingin Simulasi Biaya atau Ajukan Tender?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#0f172a;strokeColor=#38bdf8;fontColor=#f8fafc;fontSize=11;" vertex="1" parent="1">
+  <mxGeometry x="155" y="310" width="200" height="70" as="geometry" />
+</mxCell>
+<mxCell id="act_calc" value="Isi Parameter di Kalkulator RAB" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0f172a;strokeColor=#06b6d4;fontColor=#f8fafc;" vertex="1" parent="1">
+  <mxGeometry x="90" y="430" width="200" height="50" as="geometry" />
+</mxCell>
+<mxCell id="act_calc_sys" value="Hitung Algoritma Biaya &amp;amp; Tampilkan Rentang Estimasi" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0f172a;strokeColor=#6366f1;fontColor=#f8fafc;" vertex="1" parent="1">
+  <mxGeometry x="540" y="430" width="260" height="50" as="geometry" />
+</mxCell>
+<mxCell id="act_rfp" value="Isi Form RFP Tender &amp;amp; Unggah TOR/Denah" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0f172a;strokeColor=#38bdf8;fontColor=#f8fafc;" vertex="1" parent="1">
+  <mxGeometry x="240" y="520" width="200" height="50" as="geometry" />
+</mxCell>
+<mxCell id="act_save_db" value="Validasi Form, Simpan ke Database &amp;amp; Simpan Berkas ke Storage Aman" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0f172a;strokeColor=#6366f1;fontColor=#f8fafc;" vertex="1" parent="1">
+  <mxGeometry x="540" y="520" width="270" height="55" as="geometry" />
+</mxCell>
+<mxCell id="act_notif" value="Kirim Notifikasi Alert ke Dashboard &amp;amp; Email Estimator" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0f172a;strokeColor=#6366f1;fontColor=#f8fafc;" vertex="1" parent="1">
+  <mxGeometry x="540" y="610" width="270" height="50" as="geometry" />
+</mxCell>
+<mxCell id="act_review" value="Review Spesifikasi, Legalitas, &amp;amp; Dokumen Klien" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0f172a;strokeColor=#f59e0b;fontColor=#f8fafc;" vertex="1" parent="1">
+  <mxGeometry x="1020" y="610" width="260" height="50" as="geometry" />
+</mxCell>
+<mxCell id="act_survey" value="Hubungi Klien via WhatsApp &amp;amp; Jadwalkan Survey Lapangan" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0f172a;strokeColor=#f59e0b;fontColor=#f8fafc;" vertex="1" parent="1">
+  <mxGeometry x="1020" y="690" width="260" height="55" as="geometry" />
+</mxCell>
+<mxCell id="act_rab" value="Penyusunan RAB Resmi &amp;amp; Penawaran Kontrak" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0f172a;strokeColor=#f59e0b;fontColor=#f8fafc;" vertex="1" parent="1">
+  <mxGeometry x="1020" y="780" width="260" height="50" as="geometry" />
+</mxCell>
+<mxCell id="dec_deal" value="Klien Sepakat?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#0f172a;strokeColor=#f59e0b;fontColor=#f8fafc;" vertex="1" parent="1">
+  <mxGeometry x="1080" y="860" width="140" height="60" as="geometry" />
+</mxCell>
+<mxCell id="act_spk" value="Penerbitan SPK &amp;amp; Kick-off Proyek Konstruksi" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#065f46;strokeColor=#10b981;fontColor=#f8fafc;fontStyle=1;" vertex="1" parent="1">
+  <mxGeometry x="1020" y="960" width="260" height="50" as="geometry" />
+</mxCell>
+<mxCell id="end_node" value="" style="ellipse;fillColor=#10b981;strokeColor=#ffffff;strokeWidth=3;" vertex="1" parent="1">
+  <mxGeometry x="1135" y="1040" width="32" height="32" as="geometry" />
+</mxCell>
+<mxCell id="e_0" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#38bdf8;strokeWidth=2;fontColor=#cbd5e1;fontSize=10;labelBackgroundColor=#0f172a;" edge="1" parent="1" source="start" target="act1">
+  <mxGeometry relative="1" as="geometry" />
+</mxCell>
+<mxCell id="e_1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#38bdf8;strokeWidth=2;fontColor=#cbd5e1;fontSize=10;labelBackgroundColor=#0f172a;" edge="1" parent="1" source="act1" target="dec1">
+  <mxGeometry relative="1" as="geometry" />
+</mxCell>
+<mxCell id="e_2" value="[Simulasi Biaya]" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#38bdf8;strokeWidth=2;fontColor=#cbd5e1;fontSize=10;labelBackgroundColor=#0f172a;" edge="1" parent="1" source="dec1" target="act_calc">
+  <mxGeometry relative="1" as="geometry" />
+</mxCell>
+<mxCell id="e_3" value="Kirim input" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#38bdf8;strokeWidth=2;fontColor=#cbd5e1;fontSize=10;labelBackgroundColor=#0f172a;" edge="1" parent="1" source="act_calc" target="act_calc_sys">
+  <mxGeometry relative="1" as="geometry" />
+</mxCell>
+<mxCell id="e_4" value="Lanjut Ajukan RFP" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#38bdf8;strokeWidth=2;fontColor=#cbd5e1;fontSize=10;labelBackgroundColor=#0f172a;" edge="1" parent="1" source="act_calc_sys" target="act_rfp">
+  <mxGeometry relative="1" as="geometry" />
+</mxCell>
+<mxCell id="e_5" value="[Tender Langsung]" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#38bdf8;strokeWidth=2;fontColor=#cbd5e1;fontSize=10;labelBackgroundColor=#0f172a;" edge="1" parent="1" source="dec1" target="act_rfp">
+  <mxGeometry relative="1" as="geometry" />
+</mxCell>
+<mxCell id="e_6" value="Submit" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#38bdf8;strokeWidth=2;fontColor=#cbd5e1;fontSize=10;labelBackgroundColor=#0f172a;" edge="1" parent="1" source="act_rfp" target="act_save_db">
+  <mxGeometry relative="1" as="geometry" />
+</mxCell>
+<mxCell id="e_7" value="Trigger Event" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#38bdf8;strokeWidth=2;fontColor=#cbd5e1;fontSize=10;labelBackgroundColor=#0f172a;" edge="1" parent="1" source="act_save_db" target="act_notif">
+  <mxGeometry relative="1" as="geometry" />
+</mxCell>
+<mxCell id="e_8" value="Alert Masuk" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#38bdf8;strokeWidth=2;fontColor=#cbd5e1;fontSize=10;labelBackgroundColor=#0f172a;" edge="1" parent="1" source="act_notif" target="act_review">
+  <mxGeometry relative="1" as="geometry" />
+</mxCell>
+<mxCell id="e_9" value="Lolos Review" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#38bdf8;strokeWidth=2;fontColor=#cbd5e1;fontSize=10;labelBackgroundColor=#0f172a;" edge="1" parent="1" source="act_review" target="act_survey">
+  <mxGeometry relative="1" as="geometry" />
+</mxCell>
+<mxCell id="e_10" value="Survey Selesai" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#38bdf8;strokeWidth=2;fontColor=#cbd5e1;fontSize=10;labelBackgroundColor=#0f172a;" edge="1" parent="1" source="act_survey" target="act_rab">
+  <mxGeometry relative="1" as="geometry" />
+</mxCell>
+<mxCell id="e_11" value="Kirim Proposal" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#38bdf8;strokeWidth=2;fontColor=#cbd5e1;fontSize=10;labelBackgroundColor=#0f172a;" edge="1" parent="1" source="act_rab" target="dec_deal">
+  <mxGeometry relative="1" as="geometry" />
+</mxCell>
+<mxCell id="e_12" value="[Ya / Sepakat]" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#38bdf8;strokeWidth=2;fontColor=#cbd5e1;fontSize=10;labelBackgroundColor=#0f172a;" edge="1" parent="1" source="dec_deal" target="act_spk">
+  <mxGeometry relative="1" as="geometry" />
+</mxCell>
+<mxCell id="e_13" value="Selesai" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#38bdf8;strokeWidth=2;fontColor=#cbd5e1;fontSize=10;labelBackgroundColor=#0f172a;" edge="1" parent="1" source="act_spk" target="end_node">
+  <mxGeometry relative="1" as="geometry" />
+</mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

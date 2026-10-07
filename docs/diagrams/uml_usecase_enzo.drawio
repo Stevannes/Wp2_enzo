@@ -1,0 +1,109 @@
+<mxfile host="app.diagrams.net" modified="2026-10-06T06:53:02+00:00" version="24.0.0">
+  <diagram id="uc_page" name="UML Use Case">
+    <mxGraphModel dx="1600" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2200" pageHeight="1600" background="#0f172a" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+<mxCell id="title_uc" value="ENZO CONSTRUCTION — UML USE CASE DIAGRAM" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=22;fontStyle=1;fontColor=#f8fafc;" vertex="1" parent="1">
+  <mxGeometry x="100" y="30" width="1400" height="40" as="geometry" />
+</mxCell>
+<mxCell id="actor_visitor" value="Calon Klien / Pengunjung Web" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontColor=#38bdf8;fontStyle=1;fillColor=#0284c7;strokeColor=#38bdf8;fontSize=12;" vertex="1" parent="1">
+  <mxGeometry x="80" y="380" width="60" height="120" as="geometry" />
+</mxCell>
+<mxCell id="actor_admin" value="Tim Manajemen / Admin Enzo" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontColor=#f59e0b;fontStyle=1;fillColor=#d97706;strokeColor=#f59e0b;fontSize=12;" vertex="1" parent="1">
+  <mxGeometry x="1350" y="380" width="60" height="120" as="geometry" />
+</mxCell>
+<mxCell id="sys_boundary" value="Sistem Web &amp; Mesin Konversi Leads ENZO Construction" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=36;horizontalStack=0;resizeParent=0;collapsible=0;whiteSpace=wrap;html=1;fillColor=#090d16;strokeColor=#334155;fontColor=#f8fafc;fontSize=14;rounded=1;arcSize=6;" vertex="1" parent="1">
+  <mxGeometry x="220" y="90" width="1050" height="740" as="geometry" />
+</mxCell>
+<mxCell id="uc1" value="Jelajahi Portofolio &amp; Filter Proyek" style="ellipse;whiteSpace=wrap;html=1;fillColor=130;strokeColor=#1e293b;fontColor=#f8fafc;fontSize=12;fontStyle=1;shadow=1;" vertex="1" parent="1">
+  <mxGeometry x="280" y="130  <mxGeometry x="290" y="130" width="290" height="55" as="geometry" />
+</mxCell>
+<mxCell id="edge_uc1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#38bdf8;strokeWidth=1.5;endArrow=none;" edge="1" parent="1" source="actor_visitor" target="uc1">
+  <mxGeometry relative="1" as="geometry" />
+</mxCell>
+<mxCell id="uc2" value="Gunakan Slider Komparator Before-After" style="ellipse;whiteSpace=wrap;html=1;fillColor=210;strokeColor=#1e293b;fontColor=#f8fafc;fontSize=12;fontStyle=1;shadow=1;" vertex="1" parent="1">
+  <mxGeometry x="280" y="210  <mxGeometry x="290" y="210" width="290" height="55" as="geometry" />
+</mxCell>
+<mxCell id="edge_uc2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#38bdf8;strokeWidth=1.5;endArrow=none;" edge="1" parent="1" source="actor_visitor" target="uc2">
+  <mxGeometry relative="1" as="geometry" />
+</mxCell>
+<mxCell id="uc3" value="Hitung Simulasi Biaya (Kalkulator RAB)" style="ellipse;whiteSpace=wrap;html=1;fillColor=290;strokeColor=#1e293b;fontColor=#f8fafc;fontSize=12;fontStyle=1;shadow=1;" vertex="1" parent="1">
+  <mxGeometry x="280" y="290  <mxGeometry x="290" y="290" width="290" height="55" as="geometry" />
+</mxCell>
+<mxCell id="edge_uc3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#38bdf8;strokeWidth=1.5;endArrow=none;" edge="1" parent="1" source="actor_visitor" target="uc3">
+  <mxGeometry relative="1" as="geometry" />
+</mxCell>
+<mxCell id="uc4" value="Ajukan Permintaan Tender / RFP" style="ellipse;whiteSpace=wrap;html=1;fillColor=380;strokeColor=#1e293b;fontColor=#f8fafc;fontSize=12;fontStyle=1;shadow=1;" vertex="1" parent="1">
+  <mxGeometry x="280" y="380  <mxGeometry x="290" y="380" width="290" height="55" as="geometry" />
+</mxCell>
+<mxCell id="edge_uc4" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#38bdf8;strokeWidth=1.5;endArrow=none;" edge="1" parent="1" source="actor_visitor" target="uc4">
+  <mxGeometry relative="1" as="geometry" />
+</mxCell>
+<mxCell id="uc5" value="Upload Berkas Gambar &amp; Dokumen Tender" style="ellipse;whiteSpace=wrap;html=1;fillColor=460;strokeColor=#1e293b;fontColor=#f8fafc;fontSize=12;fontStyle=1;shadow=1;" vertex="1" parent="1">
+  <mxGeometry x="280" y="460  <mxGeometry x="290" y="460" width="290" height="55" as="geometry" />
+</mxCell>
+<mxCell id="edge_uc5" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#38bdf8;strokeWidth=1.5;endArrow=none;" edge="1" parent="1" source="actor_visitor" target="uc5">
+  <mxGeometry relative="1" as="geometry" />
+</mxCell>
+<mxCell id="uc6" value="Hubungi WhatsApp Fast-Response" style="ellipse;whiteSpace=wrap;html=1;fillColor=540;strokeColor=#1e293b;fontColor=#f8fafc;fontSize=12;fontStyle=1;shadow=1;" vertex="1" parent="1">
+  <mxGeometry x="280" y="540  <mxGeometry x="290" y="540" width="290" height="55" as="geometry" />
+</mxCell>
+<mxCell id="edge_uc6" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#38bdf8;strokeWidth=1.5;endArrow=none;" edge="1" parent="1" source="actor_visitor" target="uc6">
+  <mxGeometry relative="1" as="geometry" />
+</mxCell>
+<mxCell id="uc7" value="Baca Artikel &amp; Informasi Legalitas" style="ellipse;whiteSpace=wrap;html=1;fillColor=620;strokeColor=#1e293b;fontColor=#f8fafc;fontSize=12;fontStyle=1;shadow=1;" vertex="1" parent="1">
+  <mxGeometry x="280" y="620  <mxGeometry x="290" y="620" width="290" height="55" as="geometry" />
+</mxCell>
+<mxCell id="edge_uc7" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#38bdf8;strokeWidth=1.5;endArrow=none;" edge="1" parent="1" source="actor_visitor" target="uc7">
+  <mxGeometry relative="1" as="geometry" />
+</mxCell>
+<mxCell id="uc8" value="Login &amp; Otentikasi Multi-Role CMS" style="ellipse;whiteSpace=wrap;html=1;fillColor=130;strokeColor=#1e293b;fontColor=#f8fafc;fontSize=12;fontStyle=1;shadow=1;" vertex="1" parent="1">
+  <mxGeometry x="710" y="130" width="300" height="55" as="geometry" />
+</mxCell>
+<mxCell id="edge_uc8" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#f59e0b;strokeWidth=1.5;endArrow=none;" edge="1" parent="1" source="actor_admin" target="uc8">
+  <mxGeometry relative="1" as="geometry" />
+</mxCell>
+<mxCell id="uc9" value="Kelola Permintaan RFP &amp; Pipeline Leads" style="ellipse;whiteSpace=wrap;html=1;fillColor=210;strokeColor=#1e293b;fontColor=#f8fafc;fontSize=12;fontStyle=1;shadow=1;" vertex="1" parent="1">
+  <mxGeometry x="710" y="210" width="300" height="55" as="geometry" />
+</mxCell>
+<mxCell id="edge_uc9" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#f59e0b;strokeWidth=1.5;endArrow=none;" edge="1" parent="1" source="actor_admin" target="uc9">
+  <mxGeometry relative="1" as="geometry" />
+</mxCell>
+<mxCell id="uc10" value="Download Lampiran Dokumen Tender" style="ellipse;whiteSpace=wrap;html=1;fillColor=290;strokeColor=#1e293b;fontColor=#f8fafc;fontSize=12;fontStyle=1;shadow=1;" vertex="1" parent="1">
+  <mxGeometry x="710" y="290" width="300" height="55" as="geometry" />
+</mxCell>
+<mxCell id="edge_uc10" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#f59e0b;strokeWidth=1.5;endArrow=none;" edge="1" parent="1" source="actor_admin" target="uc10">
+  <mxGeometry relative="1" as="geometry" />
+</mxCell>
+<mxCell id="uc11" value="Follow-up Status Klien via WhatsApp Direct" style="ellipse;whiteSpace=wrap;html=1;fillColor=380;strokeColor=#1e293b;fontColor=#f8fafc;fontSize=12;fontStyle=1;shadow=1;" vertex="1" parent="1">
+  <mxGeometry x="710" y="380" width="300" height="55" as="geometry" />
+</mxCell>
+<mxCell id="edge_uc11" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#f59e0b;strokeWidth=1.5;endArrow=none;" edge="1" parent="1" source="actor_admin" target="uc11">
+  <mxGeometry relative="1" as="geometry" />
+</mxCell>
+<mxCell id="uc12" value="CRUD Portofolio &amp; Galeri Before-After" style="ellipse;whiteSpace=wrap;html=1;fillColor=460;strokeColor=#1e293b;fontColor=#f8fafc;fontSize=12;fontStyle=1;shadow=1;" vertex="1" parent="1">
+  <mxGeometry x="710" y="460" width="300" height="55" as="geometry" />
+</mxCell>
+<mxCell id="edge_uc12" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#f59e0b;strokeWidth=1.5;endArrow=none;" edge="1" parent="1" source="actor_admin" target="uc12">
+  <mxGeometry relative="1" as="geometry" />
+</mxCell>
+<mxCell id="uc13" value="Konfigurasi Parameter Tarif Kalkulator RAB" style="ellipse;whiteSpace=wrap;html=1;fillColor=540;strokeColor=#1e293b;fontColor=#f8fafc;fontSize=12;fontStyle=1;shadow=1;" vertex="1" parent="1">
+  <mxGeometry x="710" y="540" width="300" height="55" as="geometry" />
+</mxCell>
+<mxCell id="edge_uc13" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#f59e0b;strokeWidth=1.5;endArrow=none;" edge="1" parent="1" source="actor_admin" target="uc13">
+  <mxGeometry relative="1" as="geometry" />
+</mxCell>
+<mxCell id="uc14" value="Kelola Artikel &amp; Informasi Perusahaan" style="ellipse;whiteSpace=wrap;html=1;fillColor=620;strokeColor=#1e293b;fontColor=#f8fafc;fontSize=12;fontStyle=1;shadow=1;" vertex="1" parent="1">
+  <mxGeometry x="710" y="620" width="300" height="55" as="geometry" />
+</mxCell>
+<mxCell id="edge_uc14" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#f59e0b;strokeWidth=1.5;endArrow=none;" edge="1" parent="1" source="actor_admin" target="uc14">
+  <mxGeometry relative="1" as="geometry" />
+</mxCell>
+<mxCell id="inc_rfp_doc" value="&lt;&lt;include&gt;&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;strokeColor=#94a3b8;strokeWidth=1.5;fontColor=#cbd5e1;fontSize=10;" edge="1" parent="1" source="uc4" target="uc5">
+  <mxGeometry relative="1" as="geometry" />
+</mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,11 +1,19 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# ENZO Construction — Official Website & Web Platform
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Website resmi dan platform digital untuk **ENZO Construction**, perusahaan jasa konstruksi umum, desain-bangun (*design & build*), pekerjaan sipil, dan renovasi.
+
+Dokumen kebutuhan sistem: [dokumen_kebutuhan_enzo_construction.md](file:///C:/Users/Tecno/.gemini/antigravity-ide/brain/10a43ff9-25fc-404a-89d1-56239ae761a9/dokumen_kebutuhan_enzo_construction.md)
+
+---
+
+## Tentang Proyek
+Website ini dikembangkan menggunakan Laravel 12/13 dengan fokus pada:
+- **Portofolio Proyek Interaktif**: Menampilkan studi kasus proyek konstruksi (Before & After, data teknis).
+- **Lead Generation & RFP**: Form permintaan penawaran tender dan konsultasi proyek.
+- **Kalkulator Estimasi Biaya Bangun**: Estimasi biaya awal untuk calon klien.
+- **Panel Admin CMS**: Manajemen portofolio, pesan masuk, dan artikel industri.
+
+---
 
 ## About Laravel
 
