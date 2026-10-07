@@ -64,21 +64,10 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between">
                 
-                <!-- Logo & Brand (Matching PT MKP Mockup) -->
+                <!-- Logo & Brand (Using User's ENZO Architectural Symbol) -->
                 <a href="{{ route('home') }}" class="flex items-center gap-3.5 group">
-                    <!-- Geometric 3D Hexagon/Cube Icon matching Mockup -->
-                    <div class="text-white group-hover:text-[#c29b53] transition-colors duration-200">
-                        <svg class="w-10 h-10" viewBox="0 0 60 60" fill="none" stroke="currentColor" stroke-width="2.5">
-                            <polygon points="30,5 55,19 55,47 30,59 5,47 5,19" stroke="currentColor" stroke-width="3"/>
-                            <polyline points="30,5 30,59" stroke="currentColor" stroke-width="2"/>
-                            <polyline points="30,33 55,19" stroke="currentColor" stroke-width="2"/>
-                            <polyline points="30,33 5,19" stroke="currentColor" stroke-width="2"/>
-                            <line x1="14" y1="24" x2="14" y2="42" stroke="currentColor" stroke-width="2"/>
-                            <line x1="22" y1="28" x2="22" y2="48" stroke="currentColor" stroke-width="2"/>
-                            <line x1="38" y1="28" x2="38" y2="48" stroke="currentColor" stroke-width="2"/>
-                            <line x1="46" y1="24" x2="46" y2="42" stroke="currentColor" stroke-width="2"/>
-                        </svg>
-                    </div>
+                    <img src="{{ asset('images/enzo_symbol.png') }}" alt="ENZO Logo"
+                         class="h-10 w-auto object-contain transition-transform duration-200 group-hover:scale-105 filter drop-shadow">
                     <div class="flex flex-col">
                         <span class="text-2xl font-black tracking-widest text-white leading-none font-sans">ENZO</span>
                         <span class="text-[11px] tracking-wider text-slate-200 font-medium leading-tight mt-0.5">Construction</span>
@@ -211,12 +200,8 @@
                 <!-- Col 1: Brand -->
                 <div class="space-y-4">
                     <div class="flex items-center gap-3">
-                        <svg class="w-8 h-8 text-[#c29b53]" viewBox="0 0 60 60" fill="none" stroke="currentColor" stroke-width="2.5">
-                            <polygon points="30,5 55,19 55,47 30,59 5,47 5,19" stroke="currentColor" stroke-width="3"/>
-                            <polyline points="30,5 30,59" stroke="currentColor" stroke-width="2"/>
-                            <polyline points="30,33 55,19" stroke="currentColor" stroke-width="2"/>
-                            <polyline points="30,33 5,19" stroke="currentColor" stroke-width="2"/>
-                        </svg>
+                        <img src="{{ asset('images/enzo_symbol.png') }}" alt="ENZO Logo"
+                             class="h-8 w-auto object-contain opacity-90">
                         <div>
                             <span class="text-lg font-black tracking-widest text-white leading-none font-sans">ENZO</span>
                             <span class="text-[10px] tracking-wider text-slate-400 block">Construction</span>
