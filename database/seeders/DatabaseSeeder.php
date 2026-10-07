@@ -4,12 +4,12 @@ namespace Database\Seeders;
 
 use App\Models\CostEstimatorRate;
 use App\Models\Project;
+use App\Models\ProjectImage;
 use App\Models\Service;
 use App\Models\SiteSetting;
 use App\Models\Testimonial;
 use App\Models\User;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Str;
 
 class DatabaseSeeder extends Seeder
 {
@@ -164,7 +164,7 @@ class DatabaseSeeder extends Seeder
         foreach ($projects as $projectData) {
             $p = Project::create($projectData);
             if ($p->id === 1) {
-                \App\Models\ProjectImage::create([
+                ProjectImage::create([
                     'project_id' => $p->id,
                     'image_path' => 'images/project_commercial.jpg',
                     'caption' => 'Fasad Modern Komersial Pontianak',
@@ -172,7 +172,7 @@ class DatabaseSeeder extends Seeder
                     'sort_order' => 1,
                 ]);
             } elseif ($p->id === 2) {
-                \App\Models\ProjectImage::create([
+                ProjectImage::create([
                     'project_id' => $p->id,
                     'image_path' => 'images/project_residential.jpg',
                     'caption' => 'Hunian Tropis Mewah Parit Tokaya',
@@ -180,7 +180,7 @@ class DatabaseSeeder extends Seeder
                     'sort_order' => 1,
                 ]);
             } elseif ($p->id === 3) {
-                \App\Models\ProjectImage::create([
+                ProjectImage::create([
                     'project_id' => $p->id,
                     'image_path' => 'images/project_industrial.jpg',
                     'caption' => 'Struktur Baja Gudang Logistik',
@@ -188,21 +188,21 @@ class DatabaseSeeder extends Seeder
                     'sort_order' => 1,
                 ]);
             } elseif ($p->id === 4) {
-                \App\Models\ProjectImage::create([
+                ProjectImage::create([
                     'project_id' => $p->id,
                     'image_path' => 'images/project_interior.jpg',
                     'caption' => 'Interior Fit-Out Modern',
                     'type' => 'gallery',
                     'sort_order' => 1,
                 ]);
-                \App\Models\ProjectImage::create([
+                ProjectImage::create([
                     'project_id' => $p->id,
                     'image_path' => 'images/before_renovation.jpg',
                     'caption' => 'Kondisi Awal Bangunan Sebelum Renovasi',
                     'type' => 'before',
                     'sort_order' => 2,
                 ]);
-                \App\Models\ProjectImage::create([
+                ProjectImage::create([
                     'project_id' => $p->id,
                     'image_path' => 'images/after_renovation.jpg',
                     'caption' => 'Hasil Revitalisasi Fasad Arsitektural Modern Enzo',

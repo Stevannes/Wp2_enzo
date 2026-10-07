@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -59,10 +60,10 @@ class Project extends Model
     }
 
     /**
-     * @param \Illuminate\Database\Eloquent\Builder<Project> $query
-     * @return \Illuminate\Database\Eloquent\Builder<Project>
+     * @param  Builder<Project>  $query
+     * @return Builder<Project>
      */
-    public function scopeFeatured(\Illuminate\Database\Eloquent\Builder $query): \Illuminate\Database\Eloquent\Builder
+    public function scopeFeatured(Builder $query): Builder
     {
         return $query->where('is_featured', true);
     }
