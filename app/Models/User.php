@@ -7,10 +7,11 @@ use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Attributes\Hidden;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-#[Fillable(['name', 'email', 'password', 'role'])]
+#[Fillable(['name', 'email', 'google_id', 'phone_number', 'company_name', 'avatar', 'password', 'role'])]
 #[Hidden(['password', 'remember_token'])]
 class User extends Authenticatable
 {
@@ -28,5 +29,20 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function assignedInquiryRfps(): HasMany
+    {
+        return $this->hasMany(InquiryRfp::class, 'assigned_to_user_id');
+    }
+
+    public function customerInquiryRfps(): HasMany
+    {
+        return $this->hasMany(InquiryRfp::class, 'user_id');
+    }
+
+    public function rfpNegotiationLogs(): HasMany
+    {
+        return $this->hasMany(RfpNegotiationLog::class);
     }
 }

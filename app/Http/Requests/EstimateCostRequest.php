@@ -23,8 +23,8 @@ class EstimateCostRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'building_type' => ['required', 'string'],
-            'finish_grade' => ['required', 'string'],
+            'building_type' => ['required', 'string', 'in:residential_standard,residential_luxury,office,warehouse,shophouse'],
+            'finish_grade' => ['required', 'string', 'in:standard,premium,luxury'],
             'area_sqm' => ['required', 'numeric', 'min:10', 'max:50000'],
             'floors' => ['required', 'integer', 'min:1', 'max:50'],
         ];

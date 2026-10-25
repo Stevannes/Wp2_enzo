@@ -33,7 +33,7 @@ class DatabaseSeeder extends Seeder
             ['setting_key' => 'company_description', 'setting_value' => 'Building Construction and Interior', 'group' => 'company'],
             ['setting_key' => 'company_vision', 'setting_value' => 'Menjadi perusahaan konstruksi terdepan yang inovatif, berorientasi pada keberlanjutan, serta memberikan solusi pembangunan berkualitas tinggi dengan mengutamakan kepuasan klien.', 'group' => 'company'],
             ['setting_key' => 'address', 'setting_value' => 'Jalan Karya Baru No. 56A, Parit Tokaya, Kec. Pontianak Selatan, 78115', 'group' => 'contact'],
-            ['setting_key' => 'phone', 'setting_value' => '0813-4859-3725', 'group' => 'contact'],
+            ['setting_key' => 'phone', 'setting_value' => '081348593725', 'group' => 'contact'],
             ['setting_key' => 'email', 'setting_value' => 'enzo.ng7786@gmail.com', 'group' => 'contact'],
             ['setting_key' => 'whatsapp', 'setting_value' => '6281348593725', 'group' => 'contact'],
             ['setting_key' => 'instagram', 'setting_value' => '@enzocontractor', 'group' => 'social_media'],

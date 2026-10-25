@@ -10,24 +10,66 @@
 ---
 
 ## DAFTAR ISI
+0. [BAGIAN 0: MATRIKS TINDAK LANJUT EVALUASI & MASUKAN DOSEN (10 POIN REVISI)](#bagian-0-matriks-tindak-lanjut-evaluasi--masukan-dosen-10-poin-revisi)
+   - 0.1 Ringkasan 10 Poin Evaluasi Dosen & Solusi Rekayasa Sistem
+   - 0.2 Validasi Masalah & Riset Pasar (Developer B2B vs Konsumen B2C)
 1. [BAGIAN 1: REVIEW ERD (ENTITY RELATIONSHIP DIAGRAM)](#bagian-1-review-erd-entity-relationship-diagram)
    - 1.1 Deskripsi Konseptual & Arsitektur Data
-   - 1.2 Diagram ERD (Mermaid)
-   - 1.3 Kamus Data Lengkap (Data Dictionary) Seluruh Entitas
-   - 1.4 Aturan Integritas Referensial & Normalisasi Basis Data
+   - 1.2 Diagram ERD (Mermaid) Terkini (12 Entitas Relasional)
+   - 1.3 Kamus Data Lengkap (Data Dictionary) Seluruh Entitas Baru & Modifikasi
+   - 1.4 Aturan Integritas Referensial & Normalisasi Basis Data (3NF)
 2. [BAGIAN 2: WIREFRAME ANTARMUKA UI/UX](#bagian-2-wireframe-antarmuka-uiux)
-   - 2.1 Konsep & Prinsip Desain UI/UX
+   - 2.1 Konsep & Prinsip Desain UI/UX (Luxury Dark Architecture, Cinzel Typography, Glassmorphism)
    - 2.2 Wireframe 1: Beranda (Landing Page)
-   - 2.3 Wireframe 2: Portofolio Proyek & Fitur Before-After
+   - 2.3 Wireframe 2: Portofolio Proyek & Fitur Before-After (Dengan Masking Privasi)
    - 2.4 Wireframe 3: Kalkulator Estimasi Biaya Bangun (RAB Interaktif)
-   - 2.5 Wireframe 4: Formulir Pengajuan Penawaran Tender (RFP)
-   - 2.6 Wireframe 5: Dashboard Admin CMS & Lead Pipeline Tracker
+   - 2.5 Wireframe 4: Formulir Pengajuan Penawaran Tender (RFP) Terintegrasi Layout & Skema Bayar
+   - 2.6 Wireframe 5: Dashboard Admin CMS & Lead Pipeline Tracker (Dengan Banner Reminder)
+   - 2.7 Wireframe 6: Katalog Referensi Desain & Pemilihan Denah Layout Siap Pakai
+   - 2.8 Wireframe 7: Matriks Spesifikasi Teknis Material Komparatif Rinci
+   - 2.9 Wireframe 8: Dasbor Pelacakan Progres Lapangan, Jurnal Mandor (3D vs Nyata), Komplain, & Testimoni
+   - 2.10 Wireframe 9: Detail Tiket Admin: Penugasan Staf PIC, Log Negosiasi, & Publikasi Portofolio Otomatis
 3. [BAGIAN 3: DIAGRAM UML (UNIFIED MODELING LANGUAGE)](#bagian-3-diagram-uml-unified-modeling-language)
-   - 3.1 Use Case Diagram & Tabel Spesifikasi Use Case
-   - 3.2 Activity Diagram (Alur Pengajuan RFP & Lead Acquisition)
-   - 3.3 Sequence Diagram (Pengajuan RFP & Simulasi Biaya)
+   - 3.1 Use Case Diagram Komprehensif & Spesifikasi Kasus Penggunaan
+   - 3.2 Activity Diagram (Alur Pengajuan Tender, Penugasan PIC, & Komplain)
+   - 3.3 Sequence Diagram (Alur Pengingat Admin, Progres Lapangan, & Portofolio)
    - 3.4 Class Diagram (Arsitektur Backend Laravel MVC & Relasi Eloquent)
 4. [KESIMPULAN & KESIAPAN IMPLEMENTASI](#bagian-4-kesimpulan--kesiapan-implementasi)
+
+---
+
+# BAGIAN 0: MATRIKS TINDAK LANJUT EVALUASI & MASUKAN DOSEN (10 POIN REVISI)
+
+### 0.1 Ringkasan 10 Poin Evaluasi Dosen & Solusi Rekayasa Sistem
+
+Berdasarkan hasil asistensi dan sesi evaluasi dosen penguji/pembimbing, sistem **ENZO Construction** telah disempurnakan secara menyeluruh dengan mengintegrasikan 10 pilar perbaikan sistematis berikut:
+
+| No | Poin Masukan & Evaluasi Dosen | Akar Masalah / Latar Belakang | Solusi Implementasi Sistem ENZO Construction | Status Verifikasi Kode |
+|:--:|---|---|---|:---:|
+| **1** | **Validasi Masalah & Kebutuhan Pengguna (Riset Pasar)** | Dosen menanyakan apakah fitur hanya asumsi sepihak atau berdasar riset kebutuhan pengembang (*developer*) & konsumen akhir. | Penggalian riset pasar: Segmentasi persona **B2B Developer/Kontraktor** (butuh transparansi tender, kelengkapan berkas DWG/CAD, SPK cepat) vs **B2C Homeowner** (kebingungan denah, butuh komparasi material awam, dan pemantauan harian). | **Selesai (Bab 0.2)** |
+| **2** | **Fitur Referensi Desain & Tata Letak (Layout)** | Konsumen awam kesulitan membuat denah mandiri; sistem butuh katalog siap pakai selain opsi upload custom. | Modul **Katalog Layout Denah** (`/layouts`) berisi denah standar 2D + render 3D (Tipe 45, Tipe 70, Tipe 120, Villa Tropis), luas bangunan/tanah, dan estimasi biaya siap pilih langsung ke form tender RFP. | **Selesai (`DesignLayout`)** |
+| **3** | **Spesifikasi Material Rinci (Komparatif)** | Spesifikasi bangunan perlu komparatif agar konsumen paham perbedaan kualitas dan konsekuensi biaya. | Modul **Tabel Matriks Spesifikasi Komparatif** (`/specifications`) membandingkan Grade Standar vs Premium vs Luxury untuk: Pondasi/kolom beton bertulang, jenis lantai (keramik vs granit/marmer), rangka atap (baja ringan vs kayu kamper), genteng metal vs keramik/beton, utilitas PDAM/PLN, dan carport. | **Selesai (`SpecificationComparisonController`)** |
+| **4** | **Notifikasi & Pengingat Admin (Admin Reminder)** | Mekanisme pengingat otomatis jika pesanan baru masuk agar tidak terabaikan saat admin lupa membuka web; otomatis berhenti saat admin login/buka. | Background reminder logic & banner peringatan mencolok di CMS Admin jika pesanan baru berstatus `submitted` belum dibuka > 6 jam (`admin_last_viewed_at`). Begitu admin membuka tiket detail, timestamp tercatat dan notifikasi otomatis berhenti. | **Selesai (`needsAdminAttention()`)** |
+| **5** | **Manajemen Alur Pesanan & Penugasan (Task Assignment)** | Konfirmasi awal pesanan via telepon, penugasan staf PIC, dan rekam jejak tahap negosiasi hingga kesepakatan (*deal*). | Fitur **Penugasan Staf** (`assigned_to_user_id`) untuk Estimator/Project Manager, integrasi tombol WhatsApp satu-klik dengan draft pesan sopan, serta tabel **Riwayat Negosiasi** (`rfp_negotiation_logs`) mencatat proposal awal, revisi BOQ, hingga kontrak deal. | **Selesai (`RfpNegotiationLog`)** |
+| **6** | **Skema & Opsi Pembayaran** | Kejelasan metode pembayaran setelah kesepakatan tercapai agar transaksi transparan. | Opsi skema pembayaran terstandarisasi: **Tunai Keras (*Cash*)**, **Tunai Bertahap (*Cash Tempo*)** berbasis 4 termin opname fisik lapangan, dan fasilitas **KPR Konstruksi Bank Rekanan** (BCA, Mandiri, BNI) tercatat di tiket tender. | **Selesai (`payment_scheme`)** |
+| **7** | **Pemantauan Progres Pembangunan (Progress Tracking)** | Dasbor pemantauan berkala konsumen, laporan harian mandor (Hari ke-1, 15, 35, dst.), dan perbandingan render 3D vs fisik nyata. | Portal pelacakan publik (`/rfp/track`) dilengkapi **Jurnal Harian Mandor** (`construction_progress_logs`) dengan foto perbandingan berdampingan: Desain Render 3D yang dijanjikan vs Foto Fisik Nyata di Lapangan, persentase opname, dan catatan cuaca. | **Selesai (`ConstructionProgressLog`)** |
+| **8** | **Fitur Komplain / Pengaduan Lapangan** | Wadah keluhan jika pengerjaan fisik tidak sesuai perjanjian (beda warna pintu/cat, posisi sanitasi/WC geser, retak acian). | Portal **Pengaduan Garansi Pengerjaan** (`project_complaints`) di dasbor tiket konsumen. Konsumen dapat mengunggah bukti foto & deskripsi ketidaksesuaian fisik; admin memproses status (Dilaporkan $\rightarrow$ Investigasi $\rightarrow$ Perbaikan $\rightarrow$ Tuntas). | **Selesai (`ProjectComplaint`)** |
+| **9** | **Portofolio Proyek Otomatis & Testimoni** | Proyek rampung otomatis masuk etalase publik dan fitur input ulasan bintang konsumen. | Tombol 1-klik di panel admin untuk mempublikasikan tiket proyek selesai ke katalog publik (`projects`), serta form testimoni bintang (1-5) dan review kepuasan klien langsung tersimpan di sistem. | **Selesai (`publishPortfolio`)** |
+| **10** | **Kebijakan Privasi Data Hunian (Data Privacy)** | Alamat lengkap dan identitas hunian pelanggan tidak boleh dibuka gamblang di publik demi menjaga privasi keamanan. | Mekanisme **Privacy Data Masking** pada model `Project`: Properti komersial/kantor tampil terbuka, sedangkan hunian residensial otomatis disamarkan (alamat hanya menampilkan level kota/kabupaten tanpa nomor rumah/jalan, dan nama klien dimask `Bpk. H**** (Hunian Privat)` kecuali jika ada persetujuan tertulis). | **Selesai (`masked_location`)** |
+
+---
+
+### 0.2 Validasi Masalah & Riset Pasar (Developer B2B vs Konsumen B2C)
+
+Untuk menjawab keraguan evaluasi mengenai asumsi fitur, telah dilakukan validasi kebutuhan empiris pada dua segmen pengguna utama:
+
+1. **Segmen B2B (Pengembang Properti / Developer Perumahan & Kontraktor Mitra)**:
+   - *Pain Points*: Kebutuhan penawaran tender (*RFP*) yang terstruktur, kepastian durasi pengerjaan, ketepatan volume RAB/BOQ, penugasan staf teknis (*person-in-charge*) yang dapat dihubungi 24/7, serta kepastian legalitas SPK.
+   - *Fitur Jawaban*: Form tender formal dengan unggah berkas DWG/CAD/PDF, penugasan otomatis Sales Engineer/Estimator, log audit tahapan negosiasi harga, dan skema termin pembayaran bertahap (*milestone billing*).
+
+2. **Segmen B2C (Konsumen Perorangan / Calon Pemilik Rumah Tinggal)**:
+   - *Pain Points*: Tidak memiliki gambar arsitektur sendiri, bingung menentukan denah ruang ideal, cemas spesifikasi material diturunkan kualitasnya di lapangan, takut pengerjaan mangkrak tanpa ada laporan, dan enggan alamat rumah pribadinya dipublikasikan di internet.
+   - *Fitur Jawaban*: Katalog referensi denah layout siap pakai (Type 45, 70, 120, Villa), tabel matriks spesifikasi komparatif material, jurnal harian mandor dengan perbandingan visual Render 3D vs Kondisi Nyata di lapangan, tiket komplain garansi jika terjadi ketidaksesuaian (posisi WC, warna cat), serta sistem masking privasi data hunian.
 
 ---
 
@@ -50,18 +92,25 @@ Seluruh entitas dirancang terstruktur dalam bentuk relasi relasional ternormalis
 ```mermaid
 erDiagram
     USERS ||--o{ ARTICLES : "menulis"
+    USERS ||--o{ INQUIRY_RFPS : "ditugaskan sebagai PIC"
+    USERS ||--o{ RFP_NEGOTIATION_LOGS : "mencatat negosiasi"
     SERVICES ||--o{ PROJECTS : "mengelompokkan"
     PROJECTS ||--o{ PROJECT_IMAGES : "memiliki galeri"
     PROJECTS ||--o{ TESTIMONIALS : "diberi ulasan"
+    
+    DESIGN_LAYOUTS ||--o{ INQUIRY_RFPS : "menjadi acuan denah"
     INQUIRY_RFPS ||--o{ RFP_ATTACHMENTS : "memiliki berkas lampiran"
+    INQUIRY_RFPS ||--o{ RFP_NEGOTIATION_LOGS : "memiliki riwayat negosiasi"
+    INQUIRY_RFPS ||--o{ CONSTRUCTION_PROGRESS_LOGS : "memiliki jurnal mandor"
+    INQUIRY_RFPS ||--o{ PROJECT_COMPLAINTS : "memiliki tiket komplain"
 
     USERS {
         bigint id PK
-        string name "Nama User/Admin"
-        string email UK "Email unik"
+        string name "Nama User/Staf/Estimator"
+        string email UK "Email login unik"
         timestamp email_verified_at "Waktu verifikasi"
         string password "Hash bcrypt"
-        string role "admin | estimator | editor"
+        string role "admin | estimator | project_manager"
         string remember_token "Token remember me"
         timestamp created_at
         timestamp updated_at
@@ -71,12 +120,32 @@ erDiagram
         bigint id PK
         string name "Nama layanan: Civil, Design & Build, dll"
         string slug UK "URL slug unik"
-        string icon "Nama/class ikon Lucide/Tabler"
+        string icon "Ikon Lucide/Tabler"
         string short_description "Deskripsi singkat"
         text full_description "Deskripsi komprehensif"
         string banner_image "Path gambar cover"
         int sort_order "Urutan prioritas tampil"
         boolean is_active "Status aktif"
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    DESIGN_LAYOUTS {
+        bigint id PK
+        string code UK "Kode denah: LAY-T45, LAY-VILLA"
+        string title "Judul denah: Minimalis Modern Tipe 45"
+        string slug UK "URL slug unik"
+        string architectural_style "modern_minimalist | scandinavian | luxury_classic"
+        decimal building_area_sqm "Luas bangunan m2"
+        decimal land_area_sqm "Luas tanah m2"
+        int bedrooms_count "Jumlah kamar tidur"
+        int bathrooms_count "Jumlah kamar mandi"
+        int floors_count "Jumlah lantai"
+        decimal estimated_cost_idr "Estimasi biaya pembangunan Rp"
+        string floor_plan_image "Foto denah 2D blueprint"
+        string render_3d_image "Foto render fasad 3D/AI"
+        text specifications "Rincian spesifikasi ruang & struktur"
+        boolean is_popular "Label denah favorit"
         timestamp created_at
         timestamp updated_at
     }
@@ -88,7 +157,9 @@ erDiagram
         string slug UK "URL slug unik"
         string client_name "Nama pemilik proyek/klien"
         string project_type "residential | commercial | industrial | civil"
-        string location "Lokasi kota/kabupaten"
+        boolean is_residential "Penanda hunian pribadi untuk privasi"
+        boolean client_privacy_consented "Izin publikasi data lengkap"
+        string location "Lokasi fisik lengkap"
         decimal building_area_sqm "Luas bangunan m2"
         decimal land_area_sqm "Luas tanah m2"
         int completion_year "Tahun selesai"
@@ -105,7 +176,7 @@ erDiagram
     PROJECT_IMAGES {
         bigint id PK
         bigint project_id FK "Relasi ke projects(id)"
-        string image_path "Lokasi penyimpanan file gambar"
+        string image_path "Lokasi penyimpanan gambar"
         string caption "Keterangan foto proyek"
         string type "gallery | before | after | blueprint"
         int sort_order "Urutan foto"
@@ -115,7 +186,9 @@ erDiagram
 
     INQUIRY_RFPS {
         bigint id PK
-        string rfp_number UK "Nomor tiket unik, cth: RFP-202610-001"
+        bigint design_layout_id FK "Relasi opsional ke design_layouts(id)"
+        bigint assigned_to_user_id FK "Relasi penugasan staf PIC ke users(id)"
+        string rfp_number UK "Nomor tiket unik: RFP-2610-001"
         string full_name "Nama pemohon tender/klien"
         string company_name "Nama instansi/perusahaan"
         string email "Email korespondensi"
@@ -124,9 +197,15 @@ erDiagram
         string site_location "Alamat/lokasi lahan konstruksi"
         decimal estimated_budget_idr "Plafon anggaran Rp"
         decimal planned_area_sqm "Rencana luas bangunan m2"
+        string payment_scheme "cash | cash_tempo | kpr_bank"
         text project_notes "Catatan lingkup pekerjaan"
-        string source_channel "web_form | whatsapp_redirect | cost_calculator"
-        string status "new | contacted | survey_scheduled | rab_sent | deal | rejected"
+        string status "submitted | in_review | contacted | survey_scheduled | rab_sent | deal | rejected"
+        timestamp admin_last_viewed_at "Timestamp admin buka tiket (Penghenti Reminder)"
+        decimal deal_amount_idr "Nilai kesepakatan akhir SPK"
+        date deal_date "Tanggal penandatanganan SPK"
+        int client_rating "Penilaian bintang kepuasan (1-5)"
+        text client_review "Ulasan testimoni klien"
+        boolean client_privacy_consented "Persetujuan publikasi portofolio"
         text internal_admin_notes "Catatan internal tim estimator"
         timestamp created_at
         timestamp updated_at
@@ -135,10 +214,53 @@ erDiagram
     RFP_ATTACHMENTS {
         bigint id PK
         bigint inquiry_rfp_id FK "Relasi ke inquiry_rfps(id)"
-        string original_filename "Nama asli file yang diunggah"
+        string original_filename "Nama asli file"
         string file_path "Path penyimpanan aman di server"
         string file_type "Tipe MIME: pdf, dwg, zip, jpg, png"
         unsigned_bigint file_size_bytes "Ukuran berkas dalam bytes"
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    RFP_NEGOTIATION_LOGS {
+        bigint id PK
+        bigint inquiry_rfp_id FK "Relasi ke inquiry_rfps(id)"
+        bigint user_id FK "Relasi ke users(id) pencatat"
+        string stage "initial_proposal | spec_clarification | price_negotiation | revised_boq | final_deal"
+        decimal proposed_amount_idr "Nilai penawaran/revisi anggaran"
+        text client_notes "Catatan permintaan/keberatan klien"
+        text admin_response "Tanggapan teknis tim estimator"
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    CONSTRUCTION_PROGRESS_LOGS {
+        bigint id PK
+        bigint inquiry_rfp_id FK "Relasi ke inquiry_rfps(id)"
+        int day_number "Jurnal progres: Hari ke-1, ke-15, dst"
+        date logged_date "Tanggal opname fisik lapangan"
+        string stage_name "Tahap: Pondasi, Sloof, Kolom, Atap, Finishing"
+        decimal progress_percentage "Persentase fisik lapangan %"
+        string physical_photo_url "Foto kondisi riil di lapangan"
+        string ai_render_promised_url "Foto desain render 3D acuan janji"
+        string weather_notes "Catatan cuaca (Cerah, Hujan Ringan, dll)"
+        text notes "Laporan mandor & kendala teknis"
+        string foreman_name "Nama mandor / pengawas lapangan"
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    PROJECT_COMPLAINTS {
+        bigint id PK
+        bigint inquiry_rfp_id FK "Relasi ke inquiry_rfps(id)"
+        string complaint_number UK "Nomor tiket: CMP-2610-001"
+        string title "Judul keluhan ketidaksesuaian"
+        string category "sanitasi | warna_cat_kusen | plafon_atap | keramik_lantai | instalasi_listrik | lainnya"
+        text description "Rincian ketidaksesuaian fisik lapangan"
+        string photo_evidence_url "Foto bukti ketidaksesuaian lapangan"
+        string status "submitted | investigating | fixing | resolved"
+        text resolution_notes "Tanggapan perbaikan & garansi kontraktor"
+        timestamp resolved_at "Waktu penyelesaian komplain"
         timestamp created_at
         timestamp updated_at
     }
@@ -147,8 +269,8 @@ erDiagram
         bigint id PK
         string building_type "residential_standard | residential_luxury | warehouse | office | shophouse"
         string finish_grade "standard | premium | luxury"
-        decimal base_price_per_sqm "Tarif dasar per meter persegi Rp"
-        decimal multi_floor_multiplier "Faktor koefisien lantai bertingkat"
+        decimal base_price_per_sqm "Tarif dasar per m2 Rp"
+        decimal multi_floor_multiplier "Koefisien lantai bertingkat"
         text specification_details "Rincian spek material teknis"
         boolean is_active "Status tarif berlaku"
         timestamp created_at
@@ -172,7 +294,7 @@ erDiagram
     ARTICLES {
         bigint id PK
         bigint user_id FK "Relasi ke users(id) penulis"
-        string title "Judul artikel / wawasan konstruksi"
+        string title "Judul wawasan konstruksi"
         string slug UK "URL slug unik"
         string category "edukasi | berita_proyek | teknologi_konstruksi"
         text content "Konten lengkap artikel"
@@ -185,7 +307,7 @@ erDiagram
 
     SITE_SETTINGS {
         bigint id PK
-        string setting_key UK "Kunci konfigurasi (company_phone, address, dll)"
+        string setting_key UK "Kunci konfigurasi"
         text setting_value "Nilai konfigurasi"
         string group "company | contact | seo | social_media"
         timestamp created_at
@@ -227,7 +349,7 @@ Tabel katalog bidang jasa dan spesialisasi konstruksi yang disediakan oleh ENZO.
 | `created_at` / `updated_at` | TIMESTAMP | - | Ya | - | Audit trail waktu pembuatan dan pembaruan |
 
 #### 3. Entitas: `projects`
-Tabel portofolio proyek konstruksi fisik beserta data spesifikasi teknis dan studi kasus.
+Tabel portofolio proyek konstruksi fisik beserta data spesifikasi teknis, studi kasus, serta perlindungan privasi data hunian (Poin 10).
 | Nama Atribut | Tipe Data | Kunci | Nullable | Nilai Default | Keterangan / Fungsi Bisnis |
 |---|---|:---:|:---:|---|---|
 | `id` | BIGINT UNSIGNED | **PK** | Tidak | AUTO_INCREMENT | Identifikator unik proyek |
@@ -236,7 +358,9 @@ Tabel portofolio proyek konstruksi fisik beserta data spesifikasi teknis dan stu
 | `slug` | VARCHAR(255) | **UK** | Tidak | - | Slug unik halaman detail proyek |
 | `client_name` | VARCHAR(255) | - | Ya | NULL | Nama pemilik proyek / instansi klien |
 | `project_type` | VARCHAR(255) | - | Tidak | `'residential'` | Kategori: `residential`, `commercial`, `industrial`, `civil` |
-| `location` | VARCHAR(255) | - | Ya | NULL | Kota atau kawasan proyek (cth: *PIK 2, Jakarta*) |
+| `is_residential` | BOOLEAN | - | Tidak | `false` | **Poin 10**: Penanda hunian pribadi untuk memicu fitur masking privasi |
+| `client_privacy_consented` | BOOLEAN | - | Tidak | `false` | **Poin 10**: Izin eksplisit pemilik hunian untuk menampilkan alamat asli |
+| `location` | VARCHAR(255) | - | Ya | NULL | Alamat fisik lengkap di database |
 | `building_area_sqm` | DECIMAL(10,2) | - | Ya | NULL | Luas total bangunan ($m^2$) |
 | `land_area_sqm` | DECIMAL(10,2) | - | Ya | NULL | Luas lahan/tanah konstruksi ($m^2$) |
 | `completion_year` | INTEGER | - | Ya | NULL | Tahun peresmian / serah terima pekerjaan |
@@ -261,11 +385,13 @@ Tabel galeri dokumentasi foto proyek, termasuk foto perbandingan *Before & After
 | `created_at` / `updated_at` | TIMESTAMP | - | Ya | - | Audit trail sistem |
 
 #### 5. Entitas: `inquiry_rfps`
-Tabel inti penampung prospek tender dan permintaan penawaran proyek konstruksi (*Lead Ingestion*).
+Tabel inti penampung prospek tender, penugasan PIC, skema pembayaran, dan tracking pengingat admin.
 | Nama Atribut | Tipe Data | Kunci | Nullable | Nilai Default | Keterangan / Fungsi Bisnis |
 |---|---|:---:|:---:|---|---|
 | `id` | BIGINT UNSIGNED | **PK** | Tidak | AUTO_INCREMENT | Identifikator unik pengajuan tender |
-| `rfp_number` | VARCHAR(255) | **UK** | Tidak | - | Kode tracking tiket (cth: `RFP-202610-001`) |
+| `design_layout_id` | BIGINT UNSIGNED | **FK** | Ya | NULL | **Poin 2**: Relasi opsional ke denah siap pakai di `design_layouts(id)` |
+| `assigned_to_user_id`| BIGINT UNSIGNED | **FK** | Ya | NULL | **Poin 5**: Relasi penugasan staf PIC ke `users(id)` |
+| `rfp_number` | VARCHAR(255) | **UK** | Tidak | - | Kode tracking tiket (cth: `RFP-2610-001`) |
 | `full_name` | VARCHAR(255) | - | Tidak | - | Nama lengkap narahubung calon klien |
 | `company_name` | VARCHAR(255) | - | Ya | NULL | Nama perusahaan / badan usaha |
 | `email` | VARCHAR(255) | - | Tidak | - | Alamat email resmi untuk pengiriman penawaran/RAB |
@@ -274,9 +400,15 @@ Tabel inti penampung prospek tender dan permintaan penawaran proyek konstruksi (
 | `site_location` | VARCHAR(255) | - | Ya | NULL | Lokasi rencana tapak pembangunan |
 | `estimated_budget_idr` | DECIMAL(15,2) | - | Ya | NULL | Estimasi pagu anggaran yang disiapkan calon klien |
 | `planned_area_sqm` | DECIMAL(10,2) | - | Ya | NULL | Estimasi luas tanah atau bangunan ($m^2$) |
+| `payment_scheme` | VARCHAR(255) | - | Tidak | `'cash'` | **Poin 6**: Opsi pembayaran: `cash`, `cash_tempo`, `kpr_bank` |
 | `project_notes` | TEXT | - | Ya | NULL | Ringkasan penjelasan kebutuhan dan harapan klien |
-| `source_channel` | VARCHAR(255) | - | Tidak | `'web_form'` | Kanal akuisisi: `web_form`, `whatsapp_redirect`, `cost_calculator` |
-| `status` | VARCHAR(255) | - | Tidak | `'new'` | Pipeline prospek: `new`, `contacted`, `survey_scheduled`, `rab_sent`, `deal`, `rejected` |
+| `status` | VARCHAR(255) | - | Tidak | `'submitted'` | Pipeline: `submitted`, `in_review`, `contacted`, `survey_scheduled`, `rab_sent`, `deal`, `rejected` |
+| `admin_last_viewed_at` | TIMESTAMP | - | Ya | NULL | **Poin 4**: Waktu admin membuka tiket (penghenti reminder otomatis) |
+| `deal_amount_idr` | DECIMAL(15,2) | - | Ya | NULL | Nilai kesepakatan final SPK setelah negosiasi |
+| `deal_date` | DATE | - | Ya | NULL | Tanggal penandatanganan SPK |
+| `client_rating` | INTEGER | - | Ya | NULL | **Poin 9**: Skor ulasan bintang klien (1 - 5) |
+| `client_review` | TEXT | - | Ya | NULL | **Poin 9**: Testimoni kepuasan klien |
+| `client_privacy_consented` | BOOLEAN | - | Tidak | `false` | **Poin 10**: Izin publikasi ulasan pada portofolio publik |
 | `internal_admin_notes` | TEXT | - | Ya | NULL | Catatan analisis estimator / status negosiasi |
 | `created_at` / `updated_at` | TIMESTAMP | - | Ya | - | Tanggal pengajuan dan pembaruan prospek |
 
@@ -292,7 +424,74 @@ Tabel penyimpanan berkas lampiran pendukung tender (dokumen TOR, gambar denah CA
 | `file_size_bytes` | UNSIGNED BIGINT | - | Tidak | `0` | Ukuran berkas dalam satuan byte |
 | `created_at` / `updated_at` | TIMESTAMP | - | Ya | - | Audit trail pengunggahan berkas |
 
-#### 7. Entitas: `cost_estimator_rates`
+#### 7. Entitas Baru: `design_layouts` (Poin 2 Evaluasi Dosen)
+Tabel katalog referensi desain dan denah tata letak siap pakai bagi konsumen yang belum memiliki rancangan sendiri.
+| Nama Atribut | Tipe Data | Kunci | Nullable | Nilai Default | Keterangan / Fungsi Bisnis |
+|---|---|:---:|:---:|---|---|
+| `id` | BIGINT UNSIGNED | **PK** | Tidak | AUTO_INCREMENT | Identifikator unik layout denah |
+| `code` | VARCHAR(255) | **UK** | Tidak | - | Kode inventori denah (cth: `LAY-T45`, `LAY-VILLA`) |
+| `title` | VARCHAR(255) | - | Tidak | - | Judul denah (cth: *Minimalis Modern Tipe 45*) |
+| `slug` | VARCHAR(255) | **UK** | Tidak | - | Slug URL ramah SEO |
+| `architectural_style` | VARCHAR(255) | - | Tidak | `'modern_minimalist'` | Gaya arsitektur bangunan |
+| `building_area_sqm` | DECIMAL(8,2) | - | Tidak | - | Luas bangunan standar ($m^2$) |
+| `land_area_sqm` | DECIMAL(8,2) | - | Tidak | - | Kebutuhan luas kavling tanah ($m^2$) |
+| `bedrooms_count` | INTEGER | - | Tidak | `2` | Jumlah kamar tidur |
+| `bathrooms_count` | INTEGER | - | Tidak | `1` | Jumlah kamar mandi / toilet |
+| `floors_count` | INTEGER | - | Tidak | `1` | Jumlah lantai bangunan |
+| `estimated_cost_idr` | DECIMAL(15,2) | - | Tidak | - | Estimasi biaya konstruksi standar (Rp) |
+| `floor_plan_image` | VARCHAR(255) | - | Ya | NULL | Path gambar denah tata letak 2D arsitektural |
+| `render_3d_image` | VARCHAR(255) | - | Ya | NULL | Path gambar render visualisasi 3D fasad |
+| `specifications` | TEXT | - | Ya | NULL | Rincian pembagian ruang & material kunci |
+| `is_popular` | BOOLEAN | - | Tidak | `false` | Badge denah terfavorit / rekomendasi |
+| `created_at` / `updated_at` | TIMESTAMP | - | Ya | - | Audit trail sistem |
+
+#### 8. Entitas Baru: `rfp_negotiation_logs` (Poin 5 Evaluasi Dosen)
+Tabel riwayat proses negosiasi harga dan spesifikasi teknis material dari proposal awal hingga penandatanganan SPK *Deal*.
+| Nama Atribut | Tipe Data | Kunci | Nullable | Nilai Default | Keterangan / Fungsi Bisnis |
+|---|---|:---:|:---:|---|---|
+| `id` | BIGINT UNSIGNED | **PK** | Tidak | AUTO_INCREMENT | Identifikator unik catatan negosiasi |
+| `inquiry_rfp_id` | BIGINT UNSIGNED | **FK** | Tidak | - | Referensi ke `inquiry_rfps(id)` dengan `cascadeOnDelete` |
+| `user_id` | BIGINT UNSIGNED | **FK** | Tidak | - | Staf estimator penanggung jawab rekam jejak |
+| `stage` | VARCHAR(255) | - | Tidak | `'spec_clarification'` | Tahap: `initial_proposal`, `spec_clarification`, `price_negotiation`, `revised_boq`, `final_deal` |
+| `proposed_amount_idr`| DECIMAL(15,2) | - | Ya | NULL | Anggaran revisi atau plafon yang dinegosiasikan (Rp) |
+| `client_notes` | TEXT | - | Ya | NULL | Catatan permintaan, diskon, atau revisi dari calon klien |
+| `admin_response` | TEXT | - | Tidak | - | Tanggapan teknis dan penyesuaian BOQ dari tim kontraktor |
+| `created_at` / `updated_at` | TIMESTAMP | - | Ya | - | Audit trail waktu diskusi perundingan |
+
+#### 9. Entitas Baru: `construction_progress_logs` (Poin 7 Evaluasi Dosen)
+Tabel jurnal harian pengawasan mandor lapangan yang menyandingkan visual foto Render 3D vs Kondisi Nyata di lapangan.
+| Nama Atribut | Tipe Data | Kunci | Nullable | Nilai Default | Keterangan / Fungsi Bisnis |
+|---|---|:---:|:---:|---|---|
+| `id` | BIGINT UNSIGNED | **PK** | Tidak | AUTO_INCREMENT | Identifikator unik jurnal mandor |
+| `inquiry_rfp_id` | BIGINT UNSIGNED | **FK** | Tidak | - | Referensi ke proyek tender di `inquiry_rfps(id)` |
+| `day_number` | INTEGER | - | Tidak | - | Nomor hari pengerjaan (Hari Ke-1, Ke-15, Ke-35, dst.) |
+| `logged_date` | DATE | - | Tidak | - | Tanggal opname fisik lapangan dilakukan |
+| `stage_name` | VARCHAR(255) | - | Tidak | - | Tahap pekerjaan: Pondasi, Pembesian Sloof, Kolom, Atap, Finishing |
+| `progress_percentage`| DECIMAL(5,2) | - | Tidak | `0.00` | Persentase kumulatif penyelesaian fisik (%) |
+| `physical_photo_url` | VARCHAR(255) | - | Ya | NULL | Foto dokumentasi nyata hasil opname fisik di proyek |
+| `ai_render_promised_url`| VARCHAR(255) | - | Ya | NULL | Foto render 3D / AI desain acuan yang dijanjikan dalam SPK |
+| `weather_notes` | VARCHAR(255) | - | Ya | NULL | Kondisi cuaca (Cerah, Hujan Siang Hari, dll.) |
+| `notes` | TEXT | - | Ya | NULL | Catatan mandor mengenai volume tukang dan mutu kerja |
+| `foreman_name` | VARCHAR(255) | - | Ya | NULL | Nama mandor / pengawas lapangan yang bertugas |
+| `created_at` / `updated_at` | TIMESTAMP | - | Ya | - | Audit trail pencatatan laporan |
+
+#### 10. Entitas Baru: `project_complaints` (Poin 8 Evaluasi Dosen)
+Tabel penampung tiket pengaduan / komplain garansi mutu pengerjaan jika fisik lapangan tidak sesuai kesepakatan awal.
+| Nama Atribut | Tipe Data | Kunci | Nullable | Nilai Default | Keterangan / Fungsi Bisnis |
+|---|---|:---:|:---:|---|---|
+| `id` | BIGINT UNSIGNED | **PK** | Tidak | AUTO_INCREMENT | Identifikator unik komplain |
+| `inquiry_rfp_id` | BIGINT UNSIGNED | **FK** | Tidak | - | Referensi ke tiket proyek di `inquiry_rfps(id)` |
+| `complaint_number` | VARCHAR(255) | **UK** | Tidak | - | Nomor tiket unik pengaduan (cth: `CMP-2610-001`) |
+| `title` | VARCHAR(255) | - | Tidak | - | Ringkasan pokok keluhan (cth: *Posisi Kloset WC Geser 30cm*) |
+| `category` | VARCHAR(255) | - | Tidak | `'sanitasi'` | Kategori: `sanitasi`, `warna_cat_kusen`, `plafon_atap`, `keramik_lantai`, `instalasi_listrik`, `lainnya` |
+| `description` | TEXT | - | Tidak | - | Rincian detail ketidaksesuaian yang dikeluhkan konsumen |
+| `photo_evidence_url` | VARCHAR(255) | - | Ya | NULL | Foto bukti ketidaksesuaian fisik yang diambil konsumen |
+| `status` | VARCHAR(255) | - | Tidak | `'submitted'` | Status penanganan: `submitted`, `investigating`, `fixing`, `resolved` |
+| `resolution_notes` | TEXT | - | Ya | NULL | Laporan tindakan perbaikan dan klaim garansi dari kontraktor |
+| `resolved_at` | TIMESTAMP | - | Ya | NULL | Waktu penuntasan komplain oleh mandor/estimator |
+| `created_at` / `updated_at` | TIMESTAMP | - | Ya | - | Audit trail pengaduan konsumen |
+
+#### 11. Entitas: `cost_estimator_rates`
 Tabel acuan tarif simulasi anggaran pembangunan pada kalkulator interaktif.
 | Nama Atribut | Tipe Data | Kunci | Nullable | Nilai Default | Keterangan / Fungsi Bisnis |
 |---|---|:---:|:---:|---|---|
@@ -305,7 +504,7 @@ Tabel acuan tarif simulasi anggaran pembangunan pada kalkulator interaktif.
 | `is_active` | BOOLEAN | - | Tidak | `true` | Status keaktifan tarif |
 | `created_at` / `updated_at` | TIMESTAMP | - | Ya | - | Audit trail pembaruan harga acuan |
 
-#### 8. Entitas: `testimonials`
+#### 12. Entitas: `testimonials`
 Tabel ulasan autentik kepuasan dari klien korporat maupun perorangan.
 | Nama Atribut | Tipe Data | Kunci | Nullable | Nilai Default | Keterangan / Fungsi Bisnis |
 |---|---|:---:|:---:|---|---|
@@ -320,7 +519,7 @@ Tabel ulasan autentik kepuasan dari klien korporat maupun perorangan.
 | `is_approved` | BOOLEAN | - | Tidak | `false` | Moderasi persetujuan tampil di web publik |
 | `created_at` / `updated_at` | TIMESTAMP | - | Ya | - | Audit trail ulasan |
 
-#### 9. Entitas: `articles`
+#### 13. Entitas: `articles`
 Tabel publikasi wawasan rekayasa, metode kerja konstruksi, dan kabar korporasi.
 | Nama Atribut | Tipe Data | Kunci | Nullable | Nilai Default | Keterangan / Fungsi Bisnis |
 |---|---|:---:|:---:|---|---|
@@ -335,7 +534,7 @@ Tabel publikasi wawasan rekayasa, metode kerja konstruksi, dan kabar korporasi.
 | `published_at` | TIMESTAMP | - | Ya | NULL | Waktu publikasi resmi |
 | `created_at` / `updated_at` | TIMESTAMP | - | Ya | - | Audit trail konten |
 
-#### 10. Entitas: `site_settings`
+#### 14. Entitas: `site_settings`
 Tabel dinamis penyimpanan parameter global aplikasi (*key-value store*).
 | Nama Atribut | Tipe Data | Kunci | Nullable | Nilai Default | Keterangan / Fungsi Bisnis |
 |---|---|:---:|:---:|---|---|
@@ -591,6 +790,138 @@ Untuk membangun citra kontraktor profesional berkelas internasional (*high-end g
 
 ---
 
+### 2.7 Wireframe 6: Katalog Referensi Desain & Pemilihan Denah Tata Letak Siap Pakai (Poin 2)
+
+```text
++--------------------------------------------------------------------------------------------------+
+| ENZO CONTRACTOR | [Home] [Services] [Portfolio] [DESIGNS] [SPECS] [Cost Calculator] [RFP]       |
++--------------------------------------------------------------------------------------------------+
+| HEADER: KATALOG REFERENSI DESAIN & DENAH SIAP PAKAI                                              |
+| "Konsumen Bingung Menentukan Denah Sendiri? Pilih Denah Teruji Kami atau Unggah Desain Custom"   |
+|                                                                                                  |
+| Filter Tipe: [Semua Tipe] [Tipe 45] [Tipe 70] [Tipe 120] [Villa Tropis] [Custom Upload]         |
++--------------------------------------------------------------------------------------------------+
+| GRID KATALOG DENAH:                                                                              |
+| +------------------------------------+  +------------------------------------+                   |
+| | [GAMBAR RENDER 3D FASAD TIPE 45]   |  | [GAMBAR RENDER 3D FASAD TIPE 70]   |                   |
+| | Kode: LAY-T45 | Gaya: Minimalis    |  | Kode: LAY-T70 | Gaya: Japandi      |                   |
+| | Judul: Minimalis Modern Tipe 45    |  | Judul: Kontemporer Asri Tipe 70    |                   |
+| | Luas Bangunan: 45 m2 | Tanah: 90 m2|  | Luas Bangunan: 70 m2 | Tanah: 120m2|                   |
+| | [2 KT] [1 KM] [1 Carport] [Taman]  |  | [3 KT] [2 KM] [1 Carport] [Balkon] |                   |
+| | Estimasi Biaya: Rp 225.000.000     |  | Estimasi Biaya: Rp 385.000.000     |                   |
+| | [ TOMBOL: PILIH DENAH INI KE RFP ] |  | [ TOMBOL: PILIH DENAH INI KE RFP ] |                   |
+| | [ LIHAT BLUEPRINT 2D & DETAIL ]    |  | [ LIHAT BLUEPRINT 2D & DETAIL ]    |                   |
+| +------------------------------------+  +------------------------------------+                   |
+| +------------------------------------+  +------------------------------------+                   |
+| | [GAMBAR RENDER VILLA TROPIS LUXURY]|  | [KOTAK OPSI CUSTOM UPLOAD DENAH]   |                   |
+| | Kode: LAY-VILLA | 2 Lantai Mewah   |  | Punya Sketsa Sendiri dari Arsitek? |                   |
+| | Estimasi Biaya: Rp 1.450.000.000   |  | Unggah denah CAD/DWG/PDF Anda di:  |                   |
+| | [ TOMBOL: PILIH DENAH INI KE RFP ] |  | [ TOMBOL: AJUKAN DENAH CUSTOM RFP ]|                   |
+| +------------------------------------+  +------------------------------------+                   |
++--------------------------------------------------------------------------------------------------+
+```
+
+---
+
+### 2.8 Wireframe 7: Matriks Spesifikasi Teknis Material Komparatif Rinci (Poin 3)
+
+```text
++--------------------------------------------------------------------------------------------------+
+| MATRIKS SPESIFIKASI TEKNIS MATERIAL KOMPARATIF RINCI (Tabel Elegan Dark Glassmorphic)           |
+| "Perbandingan Transparan: Grade Standar vs Grade Premium vs Grade Luxury"                        |
++--------------------------------------------------------------------------------------------------+
+| KOMPONEN STRUKTUR   | GRADE STANDAR             | GRADE PREMIUM              | GRADE LUXURY      |
++---------------------+---------------------------+----------------------------+-------------------+
+| 1. Pondasi & Kolom  | Pondasi Batu Kali +       | Footplat Beton Bertulang   | Bored Pile /      |
+|                     | Sloof Beton K-225         | Mutu K-275 + Sloof Besi 12 | Tiang Pancang K350|
++---------------------+---------------------------+----------------------------+-------------------+
+| 2. Penutup Lantai   | Keramik Polos 40x40 cm    | Homogeneous Tile (Granit)  | Marmer Import     |
+|                     | Asia Tile / Mulia         | 60x60 cm Glazed Polish     | Slab Italia 120cm |
++---------------------+---------------------------+----------------------------+-------------------+
+| 3. Rangka Atap      | Baja Ringan Zincalume     | Baja Ringan Bluescope G550 | Konstruksi Baja WF|
+|                     | Kanal C 0.75 SNI          | Profil C 0.80 Extra Kokoh  | / Kayu Kamper Open|
++---------------------+---------------------------+----------------------------+-------------------+
+| 4. Jenis Genteng    | Seng / Genteng Metal      | Genteng Beton Flat Monier  | Genteng Keramik   |
+|                     | Berpasir Colorbond        | / Cisangkan Finishing Cat  | Glazuur Kanmuri   |
++---------------------+---------------------------+----------------------------+-------------------+
+| 5. Carport & Kanopi | Rabat Beton Tali Air      | Paving Block Press K-300 + | Granit Andesit +  |
+|                     | Tanpa Kanopi              | Rangka Hollow Atap SolarTuff| Kanopi Kaca Tempr |
++---------------------+---------------------------+----------------------------+-------------------+
+| 6. Utilitas Air/PLN | PLN 1300 VA + Sumur Bor   | PLN 2200 VA + PDAM + Toren | PLN 4400 VA +     |
+|                     | Pompa Semi Jetpump        | Stainless + Booster Pump   | Water Heater Solar|
++---------------------+---------------------------+----------------------------+-------------------+
+| Aksi Lanjutan:      | [ Pilih Spek Standar ]    | [ Pilih Spek Premium ]     | [ Pilih Luxury ]  |
++--------------------------------------------------------------------------------------------------+
+```
+
+---
+
+### 2.9 Wireframe 8: Dasbor Pelacakan Konsumen: Jurnal Mandor (3D vs Nyata), Komplain, & Testimoni (Poin 7, 8, 9)
+
+```text
++--------------------------------------------------------------------------------------------------+
+| PORTAL PELACAKAN STATUS TIKET: RFP-2610-001 | Klien: Bpk. Hendra Gunawan                         |
+| Status Proyek: [ DEAL KONTRAK & SEDANG DIKERJAKAN ] | Skema: [ Cash Tempo 4 Termin ]             |
+| PIC Staf Bertugas: Ir. Fajar Prakoso (Project Manager) | [ Hubungi PIC via WhatsApp ]            |
++--------------------------------------------------------------------------------------------------+
+| FITUR 7: JURNAL HARIAN MANDOR & KOMPARASI VISUAL (Render 3D vs Kondisi Fisik Lapangan)           |
+|                                                                                                  |
+| [Hari Ke-35] - Tahap: Pengecoran Plat Lantai & Dinding Bata (Progres: 38.5% Selesai)             |
+| Catatan Cuaca: Cerah | Mandor Bertugas: Rusli | Tanggal: 07 Oktober 2026                         |
+| +-----------------------------------------+  +-----------------------------------------+         |
+| | 1. DESAIN RENCANA YANG DIJANJIKAN (3D)  |  | 2. FOTO OPNAME FISIK NYATA DI LAPANGAN  |         |
+| | [Gambar Render Fasad Sesuai Kontrak SPK]|  | [Foto Nyata Tukang Sedang Pengecoran]   |         |
+| +-----------------------------------------+  +-----------------------------------------+         |
+| "Kedua foto ditampilkan berdampingan untuk memastikan akurasi pengerjaan sesuai spesifikasi!"    |
++--------------------------------------------------------------------------------------------------+
+| FITUR 8: LAYANAN PENGADUAN & GARANSI KETIDAKSESUAIAN PENGERJAAN (COMPLAINT HANDLING)             |
+| "Ada hasil fisik yang tidak sesuai perjanjian (beda warna cat/pintu, posisi kloset WC, retak)?" |
+|                                                                                                  |
+| Tiket Komplain Terdaftar:                                                                        |
+| [CMP-2610-001] "Posisi Pipa Pembuangan WC Geser 20cm" -> Status: [SEDANG PERBAIKAN MANDOR]      |
+|                                                                                                  |
+| [+ AJUKAN KELUHAN / KOMPLAIN BARU]                                                               |
+| Judul Keluhan: [                                ]  Kategori: [ Sanitasi & Plumbing v ]           |
+| Rincian Masalah: [ Deskripsi ketidaksesuaian... ]  Unggah Foto Bukti Lapangan: [Browse File]     |
+| [ TOMBOL: KIRIM LAPORAN KOMPLAIN ]                                                               |
++--------------------------------------------------------------------------------------------------+
+| FITUR 9: TESTIMONI & ULASAN KEPUASAN PELANGGAN                                                   |
+| Penilaian: [⭐⭐⭐⭐⭐ 5 Bintang]                                                                    |
+| Ulasan: "Pengerjaan presisi, transparan dengan foto jurnal mandor setiap minggu. Sangat puas!"   |
+| [X] Setujui tampil di portofolio publik (Dengan perlindungan privasi nama/alamat disamarkan)     |
++--------------------------------------------------------------------------------------------------+
+```
+
+---
+
+### 2.10 Wireframe 9: Detail Tiket Admin: Penugasan Staf PIC, Log Negosiasi, & Publikasi Portofolio (Poin 4, 5, 9, 10)
+
+```text
++--------------------------------------------------------------------------------------------------+
+| ADMIN CMS: DETAIL TIKET RFP-2610-001 | Status: [ DEAL KONTRAK ]                                  |
+| [!] STATUS PENGINGAT ADMIN: NONAKTIF (Tiket telah dilihat admin pada 07 Okt 2026, 14:10 WIB)     |
++--------------------------------------------------------------------------------------------------+
+| INFORMASI PEMOHON & DENAH ACUAN:                                                                 |
+| Klien: Hendra Gunawan | Telp: 0812-9988-7766 | Lokasi: Sentul City, Bogor                        |
+| Denah Dipilih: Minimalis Modern Tipe 70 (LAY-T70) | Skema Bayar: Tunai Bertahap (Cash Tempo)     |
++--------------------------------------------------------------------------------------------------+
+| FITUR 5: PENUGASAN STAF (TASK ASSIGNMENT)                                                        |
+| Tugaskan Kepada: [ Dropdown: Ir. Fajar Prakoso (Project Manager) v ]  [ SIMPAN PENUGASAN ]       |
++--------------------------------------------------------------------------------------------------+
+| FITUR 5: REKAM JEJAK NEGOSIASI HARGA & SPESIFIKASI MATERIAL                                      |
+| 1. [02 Okt] Proposal Awal   : Diajukan Rp 450.000.000 (Spek Standar Baja Ringan)                 |
+| 2. [04 Okt] Negosiasi Harga : Klien minta diskon dan upgrade genteng beton flat Monier           |
+| 3. [06 Okt] Final Deal Kontrak: Disepakati Rp 430.000.000 (SPK Ditandatangani)                   |
+| [+ Catat Perkembangan Negosiasi Baru: Tahap, Anggaran Baru, Catatan Klien, Respon Tim]           |
++--------------------------------------------------------------------------------------------------+
+| FITUR 9 & 10: PUBLIKASIKAN KE PORTOFOLIO PUBLIK & PROTEKSI KEBIJAKAN PRIVASI                     |
+| Kebijakan Privasi: Properti Residensial (Otomatis Disamarkan Alamat Nomor Jalan & Nama Pemilik)  |
+| [ TOMBOL: PUBLIKASIKAN KE PORTOFOLIO PUBLIK DENGAN PROTEKSI PRIVASI ]                            |
++--------------------------------------------------------------------------------------------------+
+```
+
+---
+
 # BAGIAN 3: DIAGRAM UML (UNIFIED MODELING LANGUAGE)
 
 ### 3.1 Use Case Diagram & Tabel Spesifikasi
@@ -598,32 +929,38 @@ Untuk membangun citra kontraktor profesional berkelas internasional (*high-end g
 #### Desain Visual UML Use Case Diagram:
 ![Diagram Visual UML Use Case ENZO Construction](images/enzo_uml_pres.jpg)
 
-#### 3.1.1 Diagram Use Case (Mermaid)
+#### 3.1.1 Diagram Use Case Komprehensif (Mermaid)
 
 ```mermaid
 graph LR
-    Visitor((Calon Klien / Pengunjung))
-    Estimator((Estimator / Sales Engineer))
+    Visitor((Calon Klien / Homeowner / Developer))
+    Estimator((Estimator / Project Manager PIC))
     Admin((Super Admin))
 
     subgraph Portal Publik Enzo Construction
-        UC01([UC-01: Menjelajahi Beranda & Legalitas])
-        UC02([UC-02: Memfilter & Melihat Detail Portofolio])
+        UC01([UC-01: Menjelajahi Beranda & Kredibilitas])
+        UC02([UC-02: Memfilter Portofolio Bersertifikasi Privasi])
         UC03([UC-03: Berinteraksi dengan Slider Before-After])
-        UC04([UC-04: Melakukan Simulasi Kalkulator Biaya])
-        UC05([UC-05: Mengajukan Permintaan Penawaran RFP])
-        UC06([UC-06: Mengunggah Berkas Dokumen Tender])
-        UC07([UC-07: Menghubungi Via Tombol WhatsApp Direct])
+        UC04([UC-04: Melakukan Simulasi Biaya RAB Awal])
+        UC05([UC-05: Memilih Denah Siap Pakai dari Katalog Layout])
+        UC06([UC-06: Mempelajari Matriks Spesifikasi Komparatif Material])
+        UC07([UC-07: Mengajukan Tender RFP & Pilih Skema Bayar])
+        UC08([UC-08: Mengunggah Berkas Gambar CAD/PDF])
+        UC09([UC-09: Melacak Status Tiket & Jurnal Mandor])
+        UC10([UC-10: Mengajukan Komplain Ketidaksesuaian Fisik])
+        UC11([UC-11: Memberikan Testimoni & Izin Portofolio])
+        UC12([UC-12: Menghubungi PIC via WhatsApp Direct])
     end
 
-    subgraph Portal Manajemen Admin CMS
-        UC08([UC-08: Melakukan Autentikasi Login])
-        UC09([UC-09: Mengelola Pipeline Status RFP])
-        UC10([UC-10: Mengunduh Dokumen Lampiran Tender])
-        UC11([UC-11: Mengelola Portofolio & Foto Proyek])
-        UC12([UC-12: Mengatur Tarif Dasar Kalkulator Biaya])
-        UC13([UC-13: Mempublikasikan Artikel Wawasan])
-        UC14([UC-14: Mengonfigurasi Setelan Profil Perusahaan])
+    subgraph Portal Manajemen CMS & Lead Pipeline
+        UC13([UC-13: Autentikasi Login])
+        UC14([UC-14: Memantau Peringatan Pengingat Admin Otomatis])
+        UC15([UC-15: Menugaskan Staf PIC ke Tiket Tender])
+        UC16([UC-16: Mengelola Pipeline Status & Log Negosiasi])
+        UC17([UC-17: Menginput Jurnal Harian Mandor & Foto Pembanding])
+        UC18([UC-18: Memproses Tiket Komplain Garansi Klien])
+        UC19([UC-19: Mempublikasikan Proyek ke Portofolio dengan Masking])
+        UC20([UC-20: Mengatur Data Master Katalog Denah & Tarif])
     end
 
     Visitor --> UC01
@@ -631,150 +968,198 @@ graph LR
     Visitor --> UC03
     Visitor --> UC04
     Visitor --> UC05
+    Visitor --> UC06
     Visitor --> UC07
+    Visitor --> UC09
+    Visitor --> UC10
+    Visitor --> UC11
+    Visitor --> UC12
 
-    UC05 -.->|<<include>>| UC06
-    UC04 -.->|<<extend>>| UC05
+    UC07 -.->|<<include>>| UC08
+    UC05 -.->|<<extend>>| UC07
+    UC04 -.->|<<extend>>| UC07
 
-    Estimator --> UC08
-    Estimator --> UC09
-    Estimator --> UC10
+    Estimator --> UC13
+    Estimator --> UC15
+    Estimator --> UC16
+    Estimator --> UC17
+    Estimator --> UC18
 
-    Admin --> UC08
-    Admin --> UC09
-    Admin --> UC10
-    Admin --> UC11
-    Admin --> UC12
     Admin --> UC13
     Admin --> UC14
+    Admin --> UC15
+    Admin --> UC16
+    Admin --> UC17
+    Admin --> UC18
+    Admin --> UC19
+    Admin --> UC20
 ```
 
-#### 3.1.2 Tabel Spesifikasi Use Case Inti
+#### 3.1.2 Tabel Spesifikasi Use Case Inti (10 Fitur Evaluasi)
 | ID | Nama Use Case | Aktor Terkait | Deskripsi Fungsional | Pre-Kondisi | Post-Kondisi |
 |---|---|---|---|---|---|
-| **UC-04** | Simulasi Kalkulator Biaya | Calon Klien | Menghitung kisaran kasar anggaran konstruksi berdasarkan tipe bangunan, luas, jumlah lantai, dan mutu finishing secara instan. | Pengguna mengakses halaman/widget kalkulator | Nilai estimasi minimum & maksimum tampil pada layar. |
-| **UC-05** | Pengajuan Permintaan Penawaran (RFP) | Calon Klien | Mengisi dan mengirim formulir data identitas, kebutuhan proyek, dan spesifikasi teknis untuk penawaran resmi. | Formulir RFP terbuka | Record tersimpan di database, tiket `rfp_number` terbit, notifikasi terkirim ke staf. |
-| **UC-06** | Unggah Dokumen Tender | Calon Klien | Mengunggah gambar denah CAD, file PDF TOR, atau arsip ZIP bersamaan dengan pengajuan RFP (`<<include>>`). | Formulir RFP diisi dan berkas valid dipilih | Berkas tersimpan di direktori storage privat server. |
-| **UC-09** | Mengelola Pipeline RFP | Estimator, Super Admin | Meninjau detail calon klien, mengubah status tahapan prospek (`new`, `survey_scheduled`, `rab_sent`, dll.), serta menulis catatan internal. | Admin telah login ke dashboard | Status dan riwayat prospek diperbarui secara real-time. |
-| **UC-11** | Kelola Portofolio & Galeri | Super Admin | Operasi CRUD (Create, Read, Update, Delete) studi kasus proyek serta unggah foto pendukung *Before & After*. | Admin terautentikasi | Data proyek dan aset foto terbarui di basis data & portal publik. |
+| **UC-05** | Memilih Denah Katalog Layout | Calon Klien | Menjelajahi katalog denah terstandar (Type 45, 70, 120, Villa), meninjau blueprint 2D, render 3D fasad, dan meneruskannya ke form tender RFP. | Halaman `/layouts` diakses | Data layout terpilih otomatis mengisi formulir pengajuan RFP. |
+| **UC-06** | Matriks Komparatif Spesifikasi | Calon Klien | Meninjau tabel perbandingan spesifikasi struktural, lantai, atap, genteng, utilitas, dan carport antara grade Standar, Premium, dan Luxury. | Halaman `/specifications` diakses | Konsumen memahami rincian material dan estimasi konsekuensi biaya. |
+| **UC-07** | Pengajuan RFP & Opsi Pembayaran | Calon Klien | Mengisi formulir tender lengkap dengan preferensi skema bayar (*Cash*, *Cash Tempo 4 Termin*, atau *KPR Bank Rekanan*). | Form RFP diakses | Nomor tiket unik `RFP-xxxx` terbit dan notifikasi pengingat admin disiagakan. |
+| **UC-09** | Pemantauan Jurnal Mandor | Calon Klien | Memantau tahapan konstruksi harian (Hari ke-1, 15, 35) dan komparasi visual berdampingan antara render 3D yang dijanjikan vs foto fisik lapangan. | Tiket RFP telah diterbitkan | Konsumen melihat transparansi opname fisik lapangan. |
+| **UC-10** | Pengajuan Komplain Garansi | Calon Klien | Melaporkan ketidaksesuaian fisik (posisi sanitasi WC, warna cat/kusen, retak) disertai foto bukti untuk penanganan tim mutu. | Proyek dalam masa konstruksi/garansi | Tiket pengaduan `CMP-xxxx` terbentuk dan ditindaklanjuti mandor. |
+| **UC-14** | Monitoring Pengingat Admin | Super Admin | Sistem otomatis memicu peringatan berkala jika tiket belum dibuka > 6 jam; pengingat berhenti begitu tiket dibuka admin. | Ada tiket status `submitted` > 6 jam | Banner peringatan aktif hingga admin membuka tiket. |
+| **UC-15** | Penugasan Staf PIC | Super Admin | Menetapkan personil estimator atau project manager yang bertanggung jawab menangani tender/proyek tertentu. | Admin berada di halaman detail tiket | Relasi `assigned_to_user_id` tersimpan dan PIC terhubung. |
+| **UC-16** | Pencatatan Riwayat Negosiasi | Estimator, Admin | Mencatat setiap tahapan perundingan harga, klarifikasi material, revisi BOQ, hingga kesepakatan final SPK *Deal*. | Tiket dalam proses evaluasi | Riwayat negosiasi tercatat berurutan pada `rfp_negotiation_logs`. |
+| **UC-19** | Publikasi Portofolio & Masking | Super Admin | Menerbitkan proyek selesai ke etalase publik dengan enkripsi masking alamat dan nama pemilik hunian residensial (Poin 10). | Status tiket mencapai deal/selesai | Proyek tampil di portofolio publik tanpa membocorkan privasi hunian. |
 
 ---
 
-### 3.2 Activity Diagram (Alur Pengajuan RFP & Lead Acquisition)
-
-Diagram aktivitas berikut menggambarkan alur kerja pengguna dari saat pertama kali mengakses portal, melakukan simulasi biaya, mengajukan tender, hingga sistem memproses data ke admin.
+### 3.2 Activity Diagram (Alur Pengajuan Tender, Penugasan PIC, & Komplain)
 
 ```mermaid
 flowchart TD
-    nodeStart([Mulai: Calon Klien Mengakses Web Enzo]) --> ViewHome[Melihat Beranda, Kredibilitas & Sertifikasi]
-    ViewHome --> DecisionAktivitas{Pilihan Calon Klien?}
+    nodeStart([Mulai: Calon Klien Mengakses Web Enzo]) --> ViewHome[Melihat Beranda, Kredibilitas & Portfolio]
+    ViewHome --> DecisionJalur{Pilihan Kebutuhan Konsumen?}
 
-    DecisionAktivitas -->|Ingin Evaluasi Hasil Kerja| BukaPorto[Jelajahi Portofolio & Slider Before-After]
-    DecisionAktivitas -->|Ingin Hitung Kasar Anggaran| BukaKalkulator[Buka Kalkulator Estimasi Biaya RAB]
-    DecisionAktivitas -->|Sudah Memiliki Dokumen Tender| BukaFormRFP[Buka Formulir Pengajuan RFP]
-    DecisionAktivitas -->|Butuh Respon Instan| KlikWA[Klik Tombol Floating WhatsApp]
+    DecisionJalur -->|Bingung Denah Sendiri| BukaLayouts[Buka Katalog Layout Denah: Type 45, 70, 120, Villa]
+    DecisionJalur -->|Ingin Komparasi Material| BukaSpecs[Buka Matriks Spesifikasi Teknis Material]
+    DecisionJalur -->|Hitung Anggaran Cepat| BukaKalkulator[Buka Kalkulator RAB Interaktif]
+    DecisionJalur -->|Sudah Siap Ajukan Tender| BukaFormRFP[Buka Formulir Pengajuan RFP]
 
-    BukaPorto --> YakinPorto{Tertarik Bekerja Sama?}
-    YakinPorto -->|Ya| BukaFormRFP
-    YakinPorto -->|Ingin Cek Budget| BukaKalkulator
+    BukaLayouts --> PilihDenah[Pilih Model Denah: Blueprint 2D + 3D Render]
+    PilihDenah --> BukaFormRFP
 
-    BukaKalkulator --> InputParameter[Pilih Tipe Bangunan, Luas m2, Lantai, Mutu Material]
-    InputParameter --> HitungEstimasi[Sistem Tampilkan Kisaran Anggaran Real-time]
-    HitungEstimasi --> TeruskanKeRFP[Klik 'Konsultasikan Hasil Estimasi Ini ke Tim Enzo']
-    TeruskanKeRFP --> BukaFormRFP
+    BukaSpecs --> PelajariSpek[Bandingkan Pondasi, Atap Baja/Kayu, Genteng Metal/Beton]
+    PelajariSpek --> BukaFormRFP
 
-    BukaFormRFP --> IsiFormulir[Isi Identitas, Kontak WA, Lokasi, dan Catatan Proyek]
-    IsiFormulir --> AdaFile{Memiliki Dokumen Gambar / TOR?}
-    AdaFile -->|Ya| UnggahFile[Pilih dan Unggah Berkas PDF/DWG/ZIP]
-    AdaFile -->|Tidak| KlikKirim[Klik Tombol Kirim Permintaan Penawaran]
-    UnggahFile --> KlikKirim
+    BukaKalkulator --> HitungRAB[Input Luas & Grade Material]
+    HitungRAB --> BukaFormRFP
 
-    KlikKirim --> ValidasiSistem{Validasi Input & Format File Valid?}
-    ValidasiSistem -->|Gagal| NotifError[Tampilkan Pesan Koreksi Input Formulir] --> IsiFormulir
-    ValidasiSistem -->|Sukses| SimpanDatabase[Simpan Data Lead ke Tabel inquiry_rfps]
+    BukaFormRFP --> InputRFP[Isi Data Proyek, Lokasi, Pilih Skema Bayar: Cash/Tempo/KPR]
+    InputRFP --> UploadDocs{Punya Berkas Arsitektur Sendiri?}
+    UploadDocs -->|Ya| UnggahFile[Unggah CAD / DWG / PDF TOR]
+    UploadDocs -->|Tidak / Pakai Denah Acuan| SubmitTender[Kirim Permintaan Tender RFP]
+    UnggahFile --> SubmitTender
 
-    SimpanDatabase --> SimpanFile[Simpan Berkas Fisik & Record rfp_attachments]
-    SimpanFile --> TerbitkanTiket[Generate Nomor Tiket RFP-YYYYMM-XXX]
-    TerbitkanTiket --> KirimNotifAdmin[Kirim Notifikasi Lead Baru ke Dashboard Admin & Email]
-    KirimNotifAdmin --> TampilKonfirmasi[Tampilkan Halaman Sukses + Tombol Direct Chat WhatsApp]
-    TampilKonfirmasi --> Selesai([Selesai: Prospek Berhasil Diakuisisi])
+    SubmitTender --> SimpanRFP[Sistem Terbitkan Tiket RFP-2610-XXX & Aktifkan Timer Pengingat 6 Jam]
+    SimpanRFP --> TimerLoop{Admin Membuka Tiket Sebelum 6 Jam?}
+    
+    TimerLoop -->|Tidak| AlertReminder[Picu Peringatan Otomatis: Banner Merah di Admin & Notifikasi Berkala]
+    AlertReminder --> AdminLogin[Admin Membuka Detail Tiket RFP]
+    TimerLoop -->|Ya| AdminLogin
 
-    KlikWA --> TerhubungWA([Terhubung Langsung dengan Sales Engineer via WhatsApp])
+    AdminLogin --> StopReminder[Sistem Catat admin_last_viewed_at: Notifikasi Pengingat Otomatis Berhenti]
+    StopReminder --> AssignPIC[Admin Tugaskan Staf PIC: Estimator / Project Manager]
+    AssignPIC --> HubungiKlien[PIC Hubungi Klien via WA / Telepon untuk Survey & Negosiasi]
+    HubungiKlien --> LogNegosiasi[Catat Tahap Negosiasi Harga & Spesifikasi ke Database]
+    
+    LogNegosiasi --> DealStatus{Mencapai Kesepakatan Final SPK?}
+    DealStatus -->|Batal| RejectTender[Status Tiket: Ditolak/Batal]
+    DealStatus -->|Deal| MulaiKonstruksi[Status: Deal Kontrak SPK Pelaksanaan]
+
+    MulaiKonstruksi --> JurnalMandor[Mandor Input Jurnal Harian: Render 3D vs Kondisi Fisik Lapangan]
+    JurnalMandor --> ClientPantau[Klien Pantau Progres di Portal Pelacakan /rfp/track]
+
+    ClientPantau --> EvaluasiFisik{Apakah Fisik Lapangan Sesuai Pesanan?}
+    EvaluasiFisik -->|Tidak Sesuai / Cacat| AjukanKomplain[Klien Ajukan Komplain: Posisi Sanitasi/Cat/Atap]
+    AjukanKomplain --> InvestigasiMandor[Mandor & Tim Mutu Investigasi & Lakukan Perbaikan Fisik]
+    InvestigasiMandor --> ClientPantau
+
+    EvaluasiFisik -->|Selesai & Sempurna| SerahTerima[Serah Terima Kunci Proyek Selesai]
+    SerahTerima --> TestimoniKlien[Klien Beri Ulasan Bintang 1-5 & Persetujuan Portofolio]
+    TestimoniKlien --> PublishPorto[Admin Publikasikan ke Portofolio Publik: Masking Otomatis Privasi Alamat Hunian]
+    PublishPorto --> Selesai([Selesai: Siklus Proyek Tuntas])
 ```
 
 ---
 
 ### 3.3 Sequence Diagram (Interaksi Sistem & Alur Pesan)
 
-#### 3.3.1 Sequence Diagram: Pengajuan RFP & Unggah Berkas Dokumen Tender
-
-```mermaid
-sequenceDiagram
-    autonumber
-    actor Klien as Calon Klien (Browser)
-    participant Blade as Form View (RFP Blade)
-    participant Route as Laravel Router (web.php)
-    participant Ctrl as InquiryRfpController
-    participant Req as StoreRFPRequest (Validator)
-    participant Storage as File Storage (Storage::disk)
-    participant DB_RFP as Model InquiryRfp (Eloquent)
-    participant DB_Att as Model RfpAttachment (Eloquent)
-    participant Mailer as Notification/Mail Service
-    actor Admin as Tim Estimator Enzo
-
-    Klien->>Blade: Isi formulir RFP & lampirkan dokumen (PDF/DWG)
-    Klien->>Blade: Klik tombol "Kirim Pengajuan RFP"
-    Blade->>Route: POST /rfp/submit (FormData multipart)
-    Route->>Ctrl: store(StoreRFPRequest $request)
-    Ctrl->>Req: validated()
-    Req-->>Ctrl: Data tervalidasi (Nama, WA, Ukuran file <= 25MB)
-
-    Ctrl->>DB_RFP: create([rfp_number, full_name, email, phone, ...])
-    DB_RFP-->>Ctrl: Instance $inquiryRfp (ID: 15, No: RFP-202610-001)
-
-    opt Jika Terdapat Berkas Lampiran
-        Ctrl->>Storage: putFile('rfp_docs', $file)
-        Storage-->>Ctrl: Return $filePath ('rfp_docs/hash_name.pdf')
-        Ctrl->>DB_Att: create([inquiry_rfp_id, original_name, path, size])
-        DB_Att-->>Ctrl: Instance $attachment
-    end
-
-    Ctrl-)Mailer: notifyNewInquiry($inquiryRfp)
-    Mailer-)Admin: Kirim notifikasi email/inbox lead masuk
-    Ctrl-->>Blade: Return JSON / Redirect dengan session Flash ('success', $rfpNumber)
-    Blade-->>Klien: Tampilkan modal sukses tiket & tautan cepat follow-up WhatsApp
-```
-
-#### 3.3.2 Sequence Diagram: Kalkulasi Estimasi Anggaran Biaya (RAB Awal)
+#### 3.3.1 Sequence Diagram: Pengingat Otomatis Admin (Admin Reminder Logic)
 
 ```mermaid
 sequenceDiagram
     autonumber
     actor Klien as Calon Klien
-    participant View as Calculator Component (Alpine.js)
-    participant Route as Laravel Router (/api/estimate)
-    participant Ctrl as CostEstimatorController
-    participant Model as Model CostEstimatorRate
-    participant DB as Basis Data (MySQL / SQLite)
+    participant Form as Form RFP (Browser)
+    participant Ctrl as InquiryRfpController
+    participant DB as Basis Data (inquiry_rfps)
+    participant System as Sistem Pengingat Otomatis
+    actor Admin as Administrator CMS
 
-    Klien->>View: Pilih jenis bangunan, mutu material, dan geser luas m2
-    View->>Route: POST /api/estimate-cost {building_type, finish_grade, area_sqm, floors}
-    Route->>Ctrl: calculate(Request $request)
-    Ctrl->>Model: where('building_type', $type)->where('finish_grade', $grade)->first()
-    Model->>DB: SELECT * FROM cost_estimator_rates WHERE ...
-    DB-->>Model: Record tarif dasar & floor multiplier
-    Model-->>Ctrl: Object $rate
-    Ctrl->>Ctrl: Hitung: (Luas * BaseRate) * (1 + (Floors - 1) * Multiplier)
-    Ctrl->>Ctrl: Susun margin rentang estimasi: Min (-5%) s/d Max (+10%)
-    Ctrl-->>View: HTTP 200 JSON {min_estimate, max_estimate, formatted_idr, specs}
-    View-->>Klien: Perbarui angka estimasi biaya pada layar secara instan
+    Klien->>Form: Submit formulir RFP (Status: submitted)
+    Form->>Ctrl: POST /rfp/submit
+    Ctrl->>DB: INSERT INTO inquiry_rfps (admin_last_viewed_at = NULL)
+    DB-->>Ctrl: Tiket Terbit: RFP-2610-001
+    Ctrl-->>Form: Tampilkan halaman konfirmasi sukses tiket
+
+    loop Setiap Pengecekan Sistem
+        System->>DB: Query tiket submitted/in_review tanpa viewed_at > 6 jam
+        DB-->>System: Return list tiket yang terabaikan
+        opt Jika terdapat tiket belum direspon > 6 jam
+            System->>System: Aktifkan status peringatan sistem
+            System-)Admin: Kirim notifikasi peringatan berkala (Email/Alert Banner)
+        end
+    end
+
+    Admin->>Form: Login & Akses Dashboard Admin (/admin)
+    Form->>Ctrl: GET /admin
+    Ctrl->>DB: Cek unhandledRfps->count()
+    DB-->>Ctrl: Ditemukan tiket belum direspon
+    Ctrl-->>Form: Tampilkan Banner Merah Berkedip: "Peringatan Respon Lambat"
+
+    Admin->>Form: Klik "Buka Tiket RFP-2610-001"
+    Form->>Ctrl: GET /admin/rfp/1
+    Ctrl->>DB: UPDATE inquiry_rfps SET admin_last_viewed_at = NOW()
+    DB-->>Ctrl: Timestamp tercatat
+    Ctrl-->>Form: Render halaman detail tiket
+    Form-->>Admin: Banner Reminder Otomatis Dinonaktifkan (Status Terpantau)
+```
+
+#### 3.3.2 Sequence Diagram: Jurnal Mandor, Pengaduan Komplain, & Masking Privasi
+
+```mermaid
+sequenceDiagram
+    autonumber
+    actor Mandor as Mandor Lapangan
+    actor Admin as Project Manager
+    participant CMS as Admin Dashboard
+    participant Portal as Portal Pelacakan Klien (/rfp/track)
+    actor Klien as Konsumen / Pemilik Hunian
+    participant DB as Basis Data
+    participant Public as Halaman Portofolio Publik
+
+    Mandor->>CMS: Unggah Jurnal Mandor: Hari Ke-35, Tahap Sloof, Opname Fisik & Render 3D
+    CMS->>DB: INSERT INTO construction_progress_logs
+    DB-->>CMS: Jurnal tersimpan
+
+    Klien->>Portal: Buka pelacakan dengan tiket RFP-2610-001
+    Portal->>DB: Ambil data tiket, log mandor, dan riwayat komplain
+    DB-->>Portal: Return data komparatif
+    Portal-->>Klien: Tampilkan foto perbandingan bersanding (Render 3D vs Lapangan)
+
+    opt Jika Ditemukan Ketidaksesuaian Fisik (Warna Cat / Posisi Sanitasi WC)
+        Klien->>Portal: Isi form komplain & unggah foto ketidaksesuaian
+        Portal->>DB: INSERT INTO project_complaints (Status: submitted)
+        DB-->>Portal: Nomor Komplain: CMP-2610-001
+        Portal-->>Klien: Tiket komplain terdaftar
+        CMS->>Admin: Alert komplain baru masuk
+        Admin->>CMS: Update status komplain -> "fixing" & catat tindakan perbaikan
+        CMS->>DB: UPDATE project_complaints SET status = 'resolved'
+    end
+
+    Klien->>Portal: Isi ulasan bintang 5 & setujui portofolio publik
+    Portal->>DB: UPDATE inquiry_rfps SET client_rating=5, client_review=...
+
+    Admin->>CMS: Klik tombol "Publikasikan ke Portofolio Publik"
+    CMS->>DB: INSERT INTO projects (is_residential=true, client_privacy_consented=false)
+    DB-->>CMS: Proyek diterbitkan
+
+    Klien->>Public: Pengunjung umum buka katalog portofolio (/projects)
+    Public->>DB: Query projects (panggil accessor masked_location & masked_client_name)
+    DB-->>Public: Return data dengan proteksi privasi
+    Public-->>Klien: Menampilkan lokasi: "Sentul City, Bogor" & Nama: "Bpk. H**** (Hunian Privat)"
 ```
 
 ---
 
-### 3.4 Class Diagram (Arsitektur Backend Laravel MVC)
-
-Class Diagram ini merepresentasikan struktur berorientasi objek pada sistem, mencakup lapisan Model Eloquent, Controller, Form Request, Service pendukung, serta relasi kardinalitas antarkelas.
+### 3.4 Class Diagram (Arsitektur Backend Laravel MVC & 10 Fitur Evaluasi)
 
 ```mermaid
 classDiagram
@@ -784,22 +1169,29 @@ classDiagram
         +string email
         +string password
         +string role
-        +articles() HasMany
+        +assignedInquiryRfps() HasMany
+        +negotiationLogs() HasMany
         +isAdmin() bool
         +isEstimator() bool
     }
 
-    class Service {
+    class DesignLayout {
         +bigint id
-        +string name
+        +string code
+        +string title
         +string slug
-        +string icon
-        +string short_description
-        +text full_description
-        +string banner_image
-        +int sort_order
-        +bool is_active
-        +projects() HasMany
+        +string architectural_style
+        +decimal building_area_sqm
+        +decimal land_area_sqm
+        +int bedrooms_count
+        +int bathrooms_count
+        +int floors_count
+        +decimal estimated_cost_idr
+        +string floor_plan_image
+        +string render_3d_image
+        +text specifications
+        +bool is_popular
+        +inquiryRfps() HasMany
     }
 
     class Project {
@@ -809,144 +1201,126 @@ classDiagram
         +string slug
         +string client_name
         +string project_type
+        +bool is_residential
+        +bool client_privacy_consented
         +string location
         +decimal building_area_sqm
-        +decimal land_area_sqm
-        +int completion_year
-        +string duration
         +string status
-        +text challenge_description
-        +text solution_description
-        +bool is_featured
-        +int sort_order
+        +getMaskedLocationAttribute() string
+        +getMaskedClientNameAttribute() string
         +service() BelongsTo
         +images() HasMany
-        +testimonials() HasMany
-        +scopeFeatured(query) Builder
-    }
-
-    class ProjectImage {
-        +bigint id
-        +bigint project_id
-        +string image_path
-        +string caption
-        +string type
-        +int sort_order
-        +project() BelongsTo
     }
 
     class InquiryRfp {
         +bigint id
+        +bigint design_layout_id
+        +bigint assigned_to_user_id
         +string rfp_number
         +string full_name
-        +string company_name
-        +string email
         +string phone_number
+        +string email
         +string project_category
         +string site_location
-        +decimal estimated_budget_idr
-        +decimal planned_area_sqm
-        +text project_notes
-        +string source_channel
+        +string payment_scheme
         +string status
-        +text internal_admin_notes
+        +timestamp admin_last_viewed_at
+        +decimal deal_amount_idr
+        +int client_rating
+        +text client_review
+        +bool client_privacy_consented
+        +needsAdminAttention() bool
+        +getPaymentSchemeLabelAttribute() string
+        +designLayout() BelongsTo
+        +assignedUser() BelongsTo
         +attachments() HasMany
-        +markStatus(newStatus) void
-        +generateTrackingCode() string
+        +negotiationLogs() HasMany
+        +progressLogs() HasMany
+        +complaints() HasMany
     }
 
-    class RfpAttachment {
+    class RfpNegotiationLog {
         +bigint id
         +bigint inquiry_rfp_id
-        +string original_filename
-        +string file_path
-        +string file_type
-        +bigint file_size_bytes
+        +bigint user_id
+        +string stage
+        +decimal proposed_amount_idr
+        +text client_notes
+        +text admin_response
+        +inquiryRfp() BelongsTo
+        +user() BelongsTo
+    }
+
+    class ConstructionProgressLog {
+        +bigint id
+        +bigint inquiry_rfp_id
+        +int day_number
+        +date logged_date
+        +string stage_name
+        +decimal progress_percentage
+        +string physical_photo_url
+        +string ai_render_promised_url
+        +string weather_notes
+        +text notes
+        +string foreman_name
         +inquiryRfp() BelongsTo
     }
 
-    class CostEstimatorRate {
+    class ProjectComplaint {
         +bigint id
-        +string building_type
-        +string finish_grade
-        +decimal base_price_per_sqm
-        +decimal multi_floor_multiplier
-        +text specification_details
-        +bool is_active
-    }
-
-    class Testimonial {
-        +bigint id
-        +bigint project_id
-        +string client_name
-        +string client_role
-        +string company_name
-        +string avatar_image
-        +text testimonial_text
-        +int rating
-        +bool is_approved
-        +project() BelongsTo
-    }
-
-    class Article {
-        +bigint id
-        +bigint user_id
+        +bigint inquiry_rfp_id
+        +string complaint_number
         +string title
-        +string slug
         +string category
-        +text content
-        +string cover_image
-        +bool is_published
-        +timestamp published_at
-        +author() BelongsTo
+        +text description
+        +string photo_evidence_url
+        +string status
+        +text resolution_notes
+        +inquiryRfp() BelongsTo
     }
 
-    class SiteSetting {
-        +bigint id
-        +string setting_key
-        +text setting_value
-        +string group
-        +get(key, default) string
-        +set(key, value) void
-    }
-
-    class InquiryRfpController {
-        +create() View
-        +store(StoreRFPRequest request) JsonResponse
-        +track(string rfpNumber) View
-    }
-
-    class CostEstimatorController {
+    class SpecificationComparisonController {
         +index() View
-        +calculate(EstimateCostRequest request) JsonResponse
     }
 
-    class ProjectController {
+    class DesignLayoutController {
         +index(Request request) View
         +show(string slug) View
     }
 
-    class AdminDashboardController {
-        +index() View
-        +rfpIndex(Request request) View
-        +rfpUpdateStatus(int id, Request request) JsonResponse
-        +projectIndex() View
+    class InquiryRfpController {
+        +create() View
+        +store(StoreInquiryRfpRequest request) RedirectResponse
+        +track(Request request) View
+        +storeComplaint(string rfpNumber, Request request) RedirectResponse
+        +storeTestimonial(string rfpNumber, Request request) RedirectResponse
     }
 
-    %% Hubungan Relasi Asosiasi Eloquent
-    User "1" --> "*" Article : "menulis"
-    Service "1" --> "*" Project : "mengelompokkan"
-    Project "1" --> "*" ProjectImage : "memiliki"
-    Project "1" --> "*" Testimonial : "memiliki"
-    InquiryRfp "1" --> "*" RfpAttachment : "memiliki lampiran"
+    class AdminDashboardController {
+        +index(Request request) View
+        +rfpShow(int id) View
+        +rfpAssign(Request request, int id) RedirectResponse
+        +rfpNegotiate(Request request, int id) RedirectResponse
+        +storeProgressLog(Request request, int id) RedirectResponse
+        +publishToPortfolio(Request request, int id) RedirectResponse
+    }
 
-    %% Hubungan Dependensi Controller
-    InquiryRfpController ..> InquiryRfp : "membuat & query"
-    InquiryRfpController ..> RfpAttachment : "menyimpan file"
-    CostEstimatorController ..> CostEstimatorRate : "mengambil tarif"
-    ProjectController ..> Project : "menampilkan studi kasus"
-    AdminDashboardController ..> InquiryRfp : "mengelola status"
-    AdminDashboardController ..> Project : "mengelola portofolio"
+    %% Relasi Asosiasi Eloquent
+    User "1" --> "*" InquiryRfp : "ditugaskan sebagai PIC"
+    User "1" --> "*" RfpNegotiationLog : "mencatat perundingan"
+    DesignLayout "1" --> "*" InquiryRfp : "menjadi acuan denah"
+    InquiryRfp "1" --> "*" RfpNegotiationLog : "memiliki riwayat negosiasi"
+    InquiryRfp "1" --> "*" ConstructionProgressLog : "memiliki jurnal harian"
+    InquiryRfp "1" --> "*" ProjectComplaint : "memiliki tiket komplain"
+
+    %% Relasi Dependensi Controller
+    DesignLayoutController ..> DesignLayout : "query katalog denah"
+    InquiryRfpController ..> InquiryRfp : "membuat & melacak tiket"
+    InquiryRfpController ..> ProjectComplaint : "mencatat komplain"
+    AdminDashboardController ..> InquiryRfp : "kelola status & reminder"
+    AdminDashboardController ..> RfpNegotiationLog : "tambah negosiasi"
+    AdminDashboardController ..> ConstructionProgressLog : "catat progres mandor"
+    AdminDashboardController ..> Project : "terbitkan ke portofolio"
 ```
 
 ---

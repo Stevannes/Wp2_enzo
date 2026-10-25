@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Middleware\EnsureAdminAuthenticated;
+use App\Http\Middleware\SecurityHeadersMiddleware;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -12,7 +14,24 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        //
+        // Attach enterprise-grade HTTP security headers to all web routes
+        $middleware->web(append: [
+            SecurityHeadersMiddleware::class,
+        ]);
+
+        // Register custom middleware aliases
+        $middleware->alias([
+            'admin.auth' => EnsureAdminAuthenticated::class,
+        ]);
+
+        // Redirect unauthenticated guests to login
+        $middleware->redirectGuestsTo(function (Request $request) {
+            if ($request->is('admin*')) {
+                return route('admin.login');
+            }
+
+            return route('customer.login');
+        });
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         $exceptions->shouldRenderJsonWhen(
